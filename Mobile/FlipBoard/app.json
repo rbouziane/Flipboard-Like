@@ -11,7 +11,7 @@
     "orientation": "portrait",
     "icon": "./assets/flipboardLogo.png",
     "splash": {
-      "image": "./assets/flipboard_splashScreen.png",
+      "image": "./assets/flipboardSplashScreen.png",
       "resizeMode": "contain",
       "backgroundColor": "#F6F6F6"
     },
