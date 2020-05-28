@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EpiFlipBoard</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+<div class="topnav">
+  <a class="active"> <%= link_to 'EpiFlipBoard', root_path, class: "nav-link" %> </a>
+  <% if user_signed_in? %>
+    <a class="active">
+      <%= link_to 'Account', edit_user_registration_path, class: "nav-link" %><br>
+    </a>
+    <a class="active">
+      <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "nav-link" %><br>
+    </a>
+  <% else %>
+    <a class="active">
+      <%= link_to 'Log In', new_user_session_path, class: "nav-link" %>
+    </a>
+    <a class="active">
+      <%= link_to 'Sign Up', new_user_registration_path, class: "nav-link" %>
+    </a>
+  <% end %>
+</div>
+
+<div class="container">
+  <% if notice %>
+    <p class="alert alert-success"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+  <% end %>
+
+  <%= yield %>
+</div>
+<footer>
+  <div class="container">
+    <div style="text-align: center;">
+      @EpiFlipBoard
+    </div>
+  </div>
+</footer>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</body>
+</html>
