@@ -1,8 +1,11 @@
 import React from 'react'
-import { View, ImageBackground } from 'react-native'
+import {
+  Text
+} from 'native-base';
+import { View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-export default class Home extends React.Component {
+export default class Settings extends React.Component {
     constructor() {
         super();
     }
@@ -14,8 +17,7 @@ export default class Home extends React.Component {
       return (
         <View>
           <SafeAreaView/>
-          <ImageBackground style={{height: 170, width: 178}} source={require('../../assets/flipboardLogo.png')}>
-          </ImageBackground>
+          <Text>Settings Page</Text>
         </View>
       )
     }
