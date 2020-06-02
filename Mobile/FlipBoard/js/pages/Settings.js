@@ -17,7 +17,7 @@ export default class Settings extends React.Component {
       return (
         <View>
           <SafeAreaView/>
-          <Text>Settings Page</Text>
+          <Text>You are in the Settings Page</Text>
         </View>
       )
     }

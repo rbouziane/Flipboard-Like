@@ -129,7 +129,7 @@ class MusicApp extends Component {
           }}
         >
           <Image
-            source={require('../../assets/flipboardLogo.png')}
+            source={require('../../assets/flipboardBackground.png')}
             style={{ flex: 1, height: null, width: null }}
           />
         </Animated.View>

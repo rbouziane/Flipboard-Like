@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 import { Asset } from 'expo-asset';
 import { AppLoading } from 'expo';
@@ -15,7 +15,7 @@ function cacheImages(images) {
     }
   });
 }
-export default class App extends React.Component {
+export default class LoginGestion extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -39,14 +39,6 @@ export default class App extends React.Component {
         />
       );
     }
-    return <Text>lol</Text>//<LoginApp />;
+    return <LoginApp/>;
   }
 }
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center'
-  }
-});

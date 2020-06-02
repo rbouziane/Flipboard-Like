@@ -2,6 +2,7 @@ import React from 'react'
 import { Splashscreen } from './js/pages/screens/SplashScreen'
 import { NavigationContainer } from '@react-navigation/native';
 import HomeStackNavigator from './js/navigation/HomeStackNavigator'
+import AuthStackNavigator from './js/navigation/AuthStackNavigator'
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
 import * as SplashScreen from 'expo-splash-screen';
@@ -44,7 +45,8 @@ export default class App extends React.Component {
       if (!this.state.appIsReady) {
           return <RootStack.Screen name={'Splash'} component={Splashscreen} />;
       }
-      return <RootStack.Screen name={'HomeStack'} component={HomeStackNavigator} />
+      return <RootStack.Screen name={'AuthStack'} component={AuthStackNavigator} />
+      // return <RootStack.Screen name={'HomeStack'} component={HomeStackNavigator} />
     }
 
     render() {
