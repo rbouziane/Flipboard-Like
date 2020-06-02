@@ -45,8 +45,8 @@ export default class App extends React.Component {
       if (!this.state.appIsReady) {
           return <RootStack.Screen name={'Splash'} component={Splashscreen} />;
       }
-      return <RootStack.Screen name={'AuthStack'} component={AuthStackNavigator} />
-      // return <RootStack.Screen name={'HomeStack'} component={HomeStackNavigator} />
+      // return <RootStack.Screen name={'AuthStack'} component={AuthStackNavigator} />
+      return <RootStack.Screen name={'HomeStack'} component={HomeStackNavigator} />
     }
 
     render() {
