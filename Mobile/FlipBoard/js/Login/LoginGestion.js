@@ -1,5 +1,4 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
 
 import { Asset } from 'expo-asset';
 import { AppLoading } from 'expo';
