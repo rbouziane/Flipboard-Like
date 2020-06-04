@@ -6,7 +6,16 @@ import AuthStackNavigator from './js/navigation/AuthStackNavigator'
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
 import * as SplashScreen from 'expo-splash-screen';
+
+import { DefaultTheme, DarkTheme } from '@react-navigation/native';
+import { Provider as PaperProvider, DarkTheme as PaperDarkTheme } from 'react-native-paper'
+
 import { createStackNavigator } from '@react-navigation/stack';
+import {createDrawerNavigator} from '@react-navigation/drawer';
+
+const Drawer = createDrawerNavigator();
+
+import DrawerContent from './js/navigation/DrawerContent'
 
 const RootStack = createStackNavigator();
 
@@ -51,15 +60,19 @@ export default class App extends React.Component {
 
     render() {
       return (
-        <NavigationContainer>
-          <RootStack.Navigator
+        <PaperProvider theme={PaperDarkTheme}>
+        <NavigationContainer theme={DarkTheme}>
+          <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
+            {this.renderScreens()}
+          </Drawer.Navigator>
+          {/*<RootStack.Navigator
             screenOptions={{
               headerShown: false,
               animationEnabled: false,
             }}>
-           {this.renderScreens()}
-          </RootStack.Navigator>
+          </RootStack.Navigator>*/}
         </NavigationContainer>
+        </PaperProvider>
       );
     }
 }

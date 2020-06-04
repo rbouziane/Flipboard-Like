@@ -5,6 +5,7 @@ import { StatusBar } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import HomeScreen from '../pages/Home'
 import SubscriptionScreen from '../pages/Subscription'
@@ -18,7 +19,7 @@ const SubscriptionStack = createStackNavigator();
 const ExploreStack = createStackNavigator();
 const ProfileStack = createStackNavigator();
 
-const HomeStackScreen = () => (
+const HomeStackScreen = ({navigation}) => (
   <HomeStack.Navigator screenOptions={{
       headerStyle:{
         backgroundColor: '#e71d25',
@@ -30,13 +31,18 @@ const HomeStackScreen = () => (
         fontWeight: 'bold'
       }
     }}>
-    {StatusBar.setBackgroundColor('#c20106')}
     {StatusBar.setBarStyle('light-content', true)}
-    <HomeStack.Screen name="Home" component={HomeScreen}/>
+    <HomeStack.Screen name="Home" component={HomeScreen}
+      options={{
+        headerLeft: () => (
+          <Icon.Button name="ios-menu" size={25} backgroundColor='#e71d25' onPress={() => navigation.openDrawer()}></Icon.Button>
+        )
+      }}
+      />
   </HomeStack.Navigator>
 )
 
-const SubscriptionStackScreen = () => (
+const SubscriptionStackScreen = ({navigation}) => (
   <SubscriptionStack.Navigator
     screenOptions={{
       headerStyle:{
@@ -50,11 +56,17 @@ const SubscriptionStackScreen = () => (
     }}>
     {StatusBar.setBackgroundColor('#c20106')}
     {StatusBar.setBarStyle('light-content', true)}
-    <SubscriptionStack.Screen name="Subscription" component={SubscriptionScreen}/>
+    <SubscriptionStack.Screen name="Subscription" component={SubscriptionScreen}
+      options={{
+        headerLeft: () => (
+          <Icon.Button name="ios-menu" size={25} backgroundColor='#e71d25' onPress={() => navigation.openDrawer()}></Icon.Button>
+        )
+      }}
+      />
   </SubscriptionStack.Navigator>
 )
 
-const ExploreStackScreen = () => (
+const ExploreStackScreen = ({navigation}) => (
   <ExploreStack.Navigator
     screenOptions={{
       headerStyle:{
@@ -68,11 +80,17 @@ const ExploreStackScreen = () => (
     }}>
     {StatusBar.setBackgroundColor('#c20106')}
     {StatusBar.setBarStyle('light-content', true)}
-    <ExploreStack.Screen name="Explore" component={ExploreScreen}/>
+    <ExploreStack.Screen name="Explore" component={ExploreScreen}
+      options={{
+        headerLeft: () => (
+          <Icon.Button name="ios-menu" size={25} backgroundColor='#e71d25' onPress={() => navigation.openDrawer()}></Icon.Button>
+        )
+      }}
+      />
   </ExploreStack.Navigator>
 )
 
-const ProfileStackScreen = () => (
+const ProfileStackScreen = ({navigation}) => (
   <ProfileStack.Navigator
     screenOptions={{
       headerStyle:{
@@ -86,7 +104,13 @@ const ProfileStackScreen = () => (
     }}>
     {StatusBar.setBackgroundColor('#c20106')}
     {StatusBar.setBarStyle('light-content', true)}
-    <ProfileStack.Screen name="Profile" component={ProfileScreen}/>
+    <ProfileStack.Screen name="Profile" component={ProfileScreen}
+      options={{
+        headerLeft: () => (
+          <Icon.Button name="ios-menu" size={25} backgroundColor='#e71d25' onPress={() => navigation.openDrawer()}></Icon.Button>
+        )
+      }}
+      />
   </ProfileStack.Navigator>
 )
 
