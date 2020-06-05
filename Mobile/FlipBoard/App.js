@@ -1,14 +1,52 @@
 import React from 'react'
 import { Splashscreen } from './js/pages/screens/SplashScreen'
-import { NavigationContainer } from '@react-navigation/native';
+import {
+    NavigationContainer,
+    DefaultTheme as NavigationDefaultTheme,
+    DarkTheme as NavigationDarkTheme
+} from '@react-navigation/native';
 import HomeStackNavigator from './js/navigation/HomeStackNavigator'
 import AuthStackNavigator from './js/navigation/AuthStackNavigator'
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
 import * as SplashScreen from 'expo-splash-screen';
+
+import { DefaultTheme, DarkTheme } from '@react-navigation/native';
+import {
+  Provider as PaperProvider,
+  DefaultTheme as PaperDefaultTheme,
+  DarkTheme as PaperDarkTheme } from 'react-native-paper'
+
 import { createStackNavigator } from '@react-navigation/stack';
+import {createDrawerNavigator} from '@react-navigation/drawer';
+
+const Drawer = createDrawerNavigator();
+
+import DrawerContent from './js/navigation/DrawerContent'
 
 const RootStack = createStackNavigator();
+
+const CustomDefaultTheme = {
+    ...NavigationDefaultTheme,
+    ...PaperDefaultTheme,
+    colors: {
+      ...NavigationDefaultTheme.colors,
+      ...PaperDefaultTheme.colors,
+      background: '#ffffff',
+      text: '#333333'
+    }
+}
+
+const CustomDarkTheme = {
+    ...NavigationDarkTheme,
+    ...PaperDarkTheme,
+    colors: {
+      ...NavigationDarkTheme.colors,
+      ...PaperDarkTheme.colors,
+      background: '#333333',
+      text: '#ffffff'
+    }
+}
 
 export default class App extends React.Component {
 
@@ -51,15 +89,19 @@ export default class App extends React.Component {
 
     render() {
       return (
-        <NavigationContainer>
-          <RootStack.Navigator
+        <PaperProvider theme={CustomDefaultTheme}>
+        <NavigationContainer theme={CustomDefaultTheme}>
+          <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
+            {this.renderScreens()}
+          </Drawer.Navigator>
+          {/*<RootStack.Navigator
             screenOptions={{
               headerShown: false,
               animationEnabled: false,
             }}>
-           {this.renderScreens()}
-          </RootStack.Navigator>
+          </RootStack.Navigator>*/}
         </NavigationContainer>
+        </PaperProvider>
       );
     }
 }
