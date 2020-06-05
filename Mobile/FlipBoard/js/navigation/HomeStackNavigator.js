@@ -116,11 +116,10 @@ export default function HomeStackNavigator() {
     <Navigator.Navigator
       tabBarOptions={{
         activeBackgroundColor: '#FFFAFA',
+        // activeBackgroundColor: '#3F3F3F',
+        // inactiveBackgroundColor: '#3F3F3F',
         inactiveBackgroundColor: '#FFFAFA',
         activeTintColor: "#ff0000",
-        style: {
-          borderTopWidth: 0.5,
-        }
       }}
     >
       <Navigator.Screen name="Home" component={HomeStackScreen}

@@ -11,13 +11,39 @@ export default class Home extends React.Component {
     componentDidMount() {
     }
 
+    secondArticle(imagePath, title, editorName) {
+      return (
+        <ImageBackground style={{flex: 1}} imageStyle={styles.imageStyle} source={imagePath}>
+          <View style={styles.container}>
+            <View style={{flexDirection: 'row-reverse'}}>
+              <Entypo name="chevron-down" size={18} color="white" />
+            </View>
+            <View style={{flex: 3}}>
+            </View>
+            <View style={{flex: 4, marginHorizontal: 10}}>
+              <Text numberOfLines={3} style={styles.articleText}>{title}</Text>
+            </View>
+            <View style={{flexDirection: 'row'}}>
+              <View style={{flex: 10, flexDirection: 'row'}}>
+                <Ionicons name="ios-flash" size={15} color="red" />
+                <Text style={styles.editorName}>{editorName}</Text>
+              </View>
+              <View style={styles.mainDotsView}>
+                <Entypo name="dots-three-vertical" size={15} color="white"/>
+              </View>
+            </View>
+          </View>
+        </ImageBackground>
+      )
+    }
+
     render() {
       return (
         // <View style={{flex: 1, backgroundColor: "#333333"}}>
         <View style={{flex: 1, backgroundColor: "#F8F8FF"}}>
           {/* Main Article */}
           <View style={styles.container}>
-            <ImageBackground style={{flex: 1}} imageStyle={styles.imageStyle} source={require('../../assets/gaspard-article.jpg')}>
+            <ImageBackground style={{flex: 1}} imageStyle={styles.imageStyle} source={require('../../assets/article/spaceX.jpg')}>
               <View style={styles.container}>
                 <View style={{flexDirection: 'row-reverse'}}>
                   <Entypo name="chevron-down" size={30} color="white" />
@@ -25,12 +51,12 @@ export default class Home extends React.Component {
                 <View style={{flex: 3}}>
                 </View>
                 <View style={{flex: 1.5, marginHorizontal: 10}}>
-                  <Text numberOfLines={3} style={styles.mainArticleText}>Gaspard Mater est-il un Mâle Blanc Privilégié Cis Genre Raciste Sexiste Homophobe Xénophobe Pas Ouvert d'Esprit Islamophobe Dictateur Nazi ?</Text>
+                  <Text numberOfLines={3} style={styles.mainArticleText}>SpaceX Starship : un autre prototype part en fumée</Text>
                 </View>
                 <View style={{flexDirection: 'row'}}>
                   <View style={{flex: 1, flexDirection: 'row'}}>
                     <Ionicons name="ios-flash" size={18} color="red" />
-                    <Text style={styles.mainEditorName}>Le vrai journal . 1h</Text>
+                    <Text style={styles.mainEditorName}>FredZone . 1h</Text>
                   </View>
                   <View style={styles.mainDotsView}>
                     <Entypo name="dots-three-vertical" size={18} color="white"/>
@@ -41,49 +67,27 @@ export default class Home extends React.Component {
           </View>
           {/* Main Article */}
           <View style={{flexDirection: 'row', flex: 1}}>
-            {/*Left Article */}
+            {/*Left Articles */}
             <View style={styles.rightBorderView}>
               <View style={{margin: 5, flex: 1}}>
-                <View style={{flex: 2}}>
-                  <ImageBackground style={{flex: 1}} imageStyle={styles.imageStyle} source={require('../../assets/trone.jpg')}>
-                  </ImageBackground>
+                <View style={{marginBottom: 5, flex: 2}}>
+                  {this.secondArticle(require("../../assets/article/Zurich.jpg"), "Bourse Zurich: le SMI s'envole au-dessus des 10'000 points", "Agefi . 1h")}
                 </View>
                 <View style={{flex: 2}}>
-                  <View style={{flex: 3, justifyContent: 'center'}}>
-                    <Text numberOfLines={2} style={styles.articleText}>Wallah bilay B2O il est chaud de ouf, que des victoires so ez </Text>
-                  </View>
-                  <View style={{flex: 1, justifyContent: 'center', flexDirection: 'row'}}>
-                    <View style={{flex: 4, flexDirection: 'row', alignItems: 'center'}}>
-                      <Text numberOfLines={1} style={styles.articleText}>Le journal OKLM . 3h</Text>
-                    </View>
-                    <View style={styles.dotsView}>
-                      <Entypo name="dots-three-vertical" size={17} color="black"/>
-                    </View>
-                  </View>
+                  {this.secondArticle(require("../../assets/article/JO.jpeg"), "Vers des Jeux olympiques « simplifiés » à Tokyo en 2021", "RMC Sport . 1J")}
                 </View>
               </View>
             </View>
-            {/*Left Article */}
+            {/*Left Articles */}
             {/*Right Article */}
             <View style={{flexDirection: 'row', flex: 1}}>
               <View style={styles.rightBorderView}>
                 <View style={{margin: 5, flex: 1}}>
-                  <View style={{flex: 2}}>
-                    <ImageBackground style={{flex: 1}} imageStyle={styles.imageStyle} source={require('../../assets/kaamelott.jpg')}>
-                    </ImageBackground>
+                  <View style={{marginBottom: 5, flex: 2}}>
+                    {this.secondArticle(require("../../assets/article/perou.jpg"), "Covid-19 : le Pérou au bord de l'asphyxies", "EuroNews Français . 14h")}
                   </View>
                   <View style={{flex: 2}}>
-                    <View style={{flex: 3, justifyContent: 'center'}}>
-                      <Text numberOfLines={2} style={styles.articleText}>Kaamelott, Alexandre Astier vien de dévoiler que Perceval</Text>
-                    </View>
-                    <View style={{flex: 1, justifyContent: 'center', flexDirection: 'row'}}>
-                      <View style={{flex: 4, flexDirection: 'row', alignItems: 'center'}}>
-                        <Text numberOfLines={1} style={styles.articleText}>La vérité vrai. 5h</Text>
-                      </View>
-                      <View style={styles.dotsView}>
-                        <Entypo name="dots-three-vertical" size={17} color="black"/>
-                      </View>
-                    </View>
+                    {this.secondArticle(require("../../assets/article/Business.jpeg"), "Croissance: rebond attendu à 0,3% au 1er trimestre 2020, selon la Banque de France", "BFM Business . 2J")}
                   </View>
                 </View>
               </View>
@@ -97,18 +101,18 @@ export default class Home extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-      flex: 1.5,
+      flex: 1,
       margin: 10,
   },
   imageStyle: {
-      borderRadius: 10,
+      borderRadius: 20,
       backgroundColor: 'black',
       opacity: 0.6
   },
   mainArticleText: {
       fontFamily: "Roboto_medium",
       textAlign: 'center',
-      fontSize: 17,
+      fontSize: 20,
       color: 'white',
       fontWeight: 'bold'
   },
@@ -123,8 +127,16 @@ const styles = StyleSheet.create({
   },
   articleText: {
       fontFamily: "Roboto_medium",
-      fontSize: 14,
-      color: 'black',
+      fontSize: 11,
+      color: 'white',
+      textAlign: 'center',
+      fontWeight: 'bold'
+  },
+  editorName: {
+      marginLeft: 5,
+      fontFamily: "Roboto_medium",
+      color: 'white',
+      fontSize: 10,
   },
   dotsView: {
       flex: 1,
@@ -134,9 +146,9 @@ const styles = StyleSheet.create({
   },
   rightBorderView: {
       flex: 1,
-      borderColor: 'grey',
-      borderLeftWidth: 0.5,
-      borderTopWidth: 0.5
+      // borderColor: 'grey',
+      // borderLeftWidth: 0.5,
+      // borderTopWidth: 0.5
   }
 
 })
