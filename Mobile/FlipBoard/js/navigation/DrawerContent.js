@@ -98,10 +98,10 @@ export default function DrawerContent(props) {
               onPress={() => {props.navigation.navigate('Profil')}}
               />
           </Drawer.Section>
-          <Drawer.Section title="Preferences">
+          <Drawer.Section title="Préférences">
             <TouchableRipple onPress={() => {toggleTheme()}}>
               <View style={styles.preference}>
-                <Text>Dark Theme</Text>
+                <Text>Thème sombre</Text>
                 <Switch value={isDarkTheme}/>
               </View>
             </TouchableRipple>
@@ -113,7 +113,7 @@ export default function DrawerContent(props) {
           icon={({color, size}) => (
             <Icon name="exit-to-app" size={size} color={color} />
           )}
-          label="Sign Out"
+          label="Déconnexion"
         />
       </Drawer.Section>
     </View>
