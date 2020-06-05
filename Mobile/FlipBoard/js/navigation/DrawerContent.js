@@ -20,6 +20,8 @@ import { Entypo } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
+import { DarkThemeContext } from '../components/Context'
+
 export default function DrawerContent(props) {
 
   const [isDarkTheme, setIsDarkTheme] = React.useState(false);

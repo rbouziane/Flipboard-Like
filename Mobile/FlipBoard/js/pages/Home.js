@@ -13,6 +13,7 @@ export default class Home extends React.Component {
 
     render() {
       return (
+        // <View style={{flex: 1, backgroundColor: "#333333"}}>
         <View style={{flex: 1, backgroundColor: "#F8F8FF"}}>
           {/* Main Article */}
           <View style={styles.container}>

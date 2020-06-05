@@ -54,7 +54,6 @@ const SubscriptionStackScreen = ({navigation}) => (
         fontWeight: 'bold'
       }
     }}>
-    {StatusBar.setBackgroundColor('#c20106')}
     {StatusBar.setBarStyle('light-content', true)}
     <SubscriptionStack.Screen name="Subscription" component={SubscriptionScreen}
       options={{
@@ -78,7 +77,6 @@ const ExploreStackScreen = ({navigation}) => (
         fontWeight: 'bold'
       }
     }}>
-    {StatusBar.setBackgroundColor('#c20106')}
     {StatusBar.setBarStyle('light-content', true)}
     <ExploreStack.Screen name="Explore" component={ExploreScreen}
       options={{
@@ -102,7 +100,6 @@ const ProfileStackScreen = ({navigation}) => (
         fontWeight: 'bold'
       }
     }}>
-    {StatusBar.setBackgroundColor('#c20106')}
     {StatusBar.setBarStyle('light-content', true)}
     <ProfileStack.Screen name="Profile" component={ProfileScreen}
       options={{
