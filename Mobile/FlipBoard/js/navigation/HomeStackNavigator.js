@@ -55,7 +55,7 @@ const SubscriptionStackScreen = ({navigation}) => (
       }
     }}>
     {StatusBar.setBarStyle('light-content', true)}
-    <SubscriptionStack.Screen name="Subscription" component={SubscriptionScreen}
+    <SubscriptionStack.Screen name="Abonnements" component={SubscriptionScreen}
       options={{
         headerLeft: () => (
           <Icon.Button name="ios-menu" size={25} backgroundColor='#e71d25' onPress={() => navigation.openDrawer()}></Icon.Button>
@@ -78,7 +78,7 @@ const ExploreStackScreen = ({navigation}) => (
       }
     }}>
     {StatusBar.setBarStyle('light-content', true)}
-    <ExploreStack.Screen name="Explore" component={ExploreScreen}
+    <ExploreStack.Screen name="Rechercher" component={ExploreScreen}
       options={{
         headerLeft: () => (
           <Icon.Button name="ios-menu" size={25} backgroundColor='#e71d25' onPress={() => navigation.openDrawer()}></Icon.Button>
@@ -101,7 +101,7 @@ const ProfileStackScreen = ({navigation}) => (
       }
     }}>
     {StatusBar.setBarStyle('light-content', true)}
-    <ProfileStack.Screen name="Profile" component={ProfileScreen}
+    <ProfileStack.Screen name="Profil" component={ProfileScreen}
       options={{
         headerLeft: () => (
           <Icon.Button name="ios-menu" size={25} backgroundColor='#e71d25' onPress={() => navigation.openDrawer()}></Icon.Button>
@@ -129,7 +129,7 @@ export default function HomeStackNavigator() {
           ),
         }}
       />
-      <Navigator.Screen name="Subscription" component={SubscriptionStackScreen}
+      <Navigator.Screen name="Abonnements" component={SubscriptionStackScreen}
         options={{
             backgroundColor: '#red',
           tabBarIcon: props => (
@@ -137,14 +137,14 @@ export default function HomeStackNavigator() {
           ),
         }}
       />
-      <Navigator.Screen name="Explore" component={ExploreStackScreen}
+      <Navigator.Screen name="Rechercher" component={ExploreStackScreen}
         options={{
           tabBarIcon: props => (
             <Entypo name="magnifying-glass" size={props.size} color={props.color} />
           ),
         }}
       />
-      <Navigator.Screen name="Profile" component={ProfileStackScreen}
+      <Navigator.Screen name="Profil" component={ProfileStackScreen}
         options={{
           tabBarIcon: props => (
             <AntDesign name="user" size={props.size} color={props.color} />

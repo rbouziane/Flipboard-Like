@@ -101,7 +101,6 @@ const styles = StyleSheet.create ({
     backgroundColor: "#fff"
   },
   text: {
-    fontFamily: "#52575D",
     color: "#52575D"
   },
   image: {

@@ -146,9 +146,5 @@ const styles = StyleSheet.create({
   },
   rightBorderView: {
       flex: 1,
-      // borderColor: 'grey',
-      // borderLeftWidth: 0.5,
-      // borderTopWidth: 0.5
   }
-
 })

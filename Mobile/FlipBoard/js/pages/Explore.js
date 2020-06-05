@@ -42,13 +42,13 @@ export default class Explore extends React.Component {
     render() {
       return (
         <View style={{flex: 1, backgroundColor: "#F8F8FF"}}>
-        <Searchbar style={{backgroundColor: "#b0abaa"}} placeholder="Rechercher sur Flipboard" onChangeText={this._onChangeSearch}/>
+        <Searchbar style={{margin: 10, backgroundColor: "#b0abaa", borderRadius: 20}} placeholder="Rechercher sur Flipboard" onChangeText={this._onChangeSearch}/>
         <Title style={styles.titleInfos}>INÉDIT</Title>
           {/*Left Article */}
           <View style={{flexDirection: 'row', flex: 1}}>
           <View style={styles.rightBorderView}>
             <View style={{margin: 5, flex: 1}}>
-                {this.Article(require("../../assets/News1.jpg"), "Propos racistes dans la police : six policiers de Rouen en conseil de discipline, la justice saisie dans une autre affaire ", "Le Monde. 5h")}
+                {this.Article(require("../../assets/explore/News1.jpg"), "Propos racistes dans la police : six policiers de Rouen en conseil de discipline, la justice saisie dans une autre affaire ", "Le Monde. 5h")}
             </View>
           </View>
           {/*Left Article */}
@@ -56,7 +56,7 @@ export default class Explore extends React.Component {
           <View style={{flexDirection: 'row', flex: 1}}>
             <View style={styles.rightBorderView}>
               <View style={{margin: 5, flex: 1}}>
-                  {this.Article(require("../../assets/News2.jpg"), "William Barr, le bouclier de Donald Trump", "Le Parisien. 5h")}
+                  {this.Article(require("../../assets/explore/News2.jpg"), "William Barr, le bouclier de Donald Trump", "Le Parisien. 5h")}
               </View>
             </View>
           </View>
@@ -68,7 +68,7 @@ export default class Explore extends React.Component {
           <View style={{flexDirection: 'row', flex: 1}}>
             <View style={styles.rightBorderView}>
               <View style={{margin: 5, flex: 1}}>
-                {this.Article(require("../../assets/News3.jpg"), "Des restructurations au coronavirus, l’apport controversé des cabinets de consulting à l’hôpital", "Le monde . 2h")}
+                {this.Article(require("../../assets/explore/News3.jpg"), "Des restructurations au coronavirus, l’apport controversé des cabinets de consulting à l’hôpital", "Le monde . 2h")}
               </View>
             </View>
               {/*Left Article */}
@@ -76,7 +76,7 @@ export default class Explore extends React.Component {
             <View style={{flexDirection: 'row', flex: 1}}>
               <View style={styles.rightBorderView}>
                 <View style={{margin: 5, flex: 1}}>
-                        {this.Article(require("../../assets/News4.jpg"), "Jordan Peterson, nouveau héraut des masculinistes", "Kombini. 5h")}
+                        {this.Article(require("../../assets/explore/News4.jpg"), "Jordan Peterson, nouveau héraut des masculinistes", "Kombini. 5h")}
                 </View>
               </View>
             </View>
@@ -105,9 +105,11 @@ const styles = StyleSheet.create({
     marginLeft: 10
   },
   titleInfos: {
+    fontFamily: "Roboto_medium",
     fontSize: 15,
     color: 'black',
-    marginLeft: 10
+    marginLeft: 10,
+    fontWeight: 'bold'
   },
   dotsView: {
       flex: 1,

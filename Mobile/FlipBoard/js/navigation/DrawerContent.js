@@ -74,8 +74,8 @@ export default function DrawerContent(props) {
                   size={size}
                 />
               )}
-              label="Subscription"
-              onPress={() => {props.navigation.navigate('Subscription')}}
+              label="Abonnements"
+              onPress={() => {props.navigation.navigate('Abonnements')}}
               />
             <DrawerItem
               icon={({color, size}) => (
@@ -84,8 +84,8 @@ export default function DrawerContent(props) {
                   size={size}
                 />
               )}
-              label="Explore"
-              onPress={() => {props.navigation.navigate('Explore')}}
+              label="Rechercher"
+              onPress={() => {props.navigation.navigate('Rechercher')}}
               />
             <DrawerItem
               icon={({color, size}) => (
@@ -94,8 +94,8 @@ export default function DrawerContent(props) {
                   size={size}
                 />
               )}
-              label="Profile"
-              onPress={() => {props.navigation.navigate('Profile')}}
+              label="Profil"
+              onPress={() => {props.navigation.navigate('Profil')}}
               />
           </Drawer.Section>
           <Drawer.Section title="Preferences">
