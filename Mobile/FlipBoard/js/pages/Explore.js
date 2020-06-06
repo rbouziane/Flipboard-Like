@@ -90,14 +90,16 @@ export default class Explore extends React.Component {
 
 const styles = StyleSheet.create({
   imageStyle: {
-      borderRadius: 10,
+      borderRadius: 20,
       backgroundColor: 'black',
       opacity: 0.6
   },
   articleText: {
-      fontFamily: "Roboto_medium",
-      fontSize: 14,
-      color: 'black',
+    fontFamily: "Roboto_medium",
+    fontSize: 11,
+    color: 'white',
+    textAlign: 'center',
+    fontWeight: 'bold'
   },
   titleStyle: {
     fontWeight: 'bold',
@@ -119,5 +121,20 @@ const styles = StyleSheet.create({
   },
   rightBorderView: {
       flex: 1,
-  }
+  },
+  editorName: {
+      marginLeft: 5,
+      fontFamily: "Roboto_medium",
+      color: 'white',
+      fontSize: 10,
+  },
+  container: {
+      flex: 1,
+      margin: 10,
+      //marginTop: 90
+  },
+  mainDotsView: {
+      flex: 1,
+      flexDirection: 'row-reverse',
+  },
 })
