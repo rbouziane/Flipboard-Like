@@ -25,7 +25,7 @@ export default class Explore extends React.Component {
            <View style={{flex: 3}}>
            </View>
            <View style={{flex: 4, marginHorizontal: 10}}>
-             <Text numberOfLines={3} style={styles.articleText}>{title}</Text>
+             <Text numberOfLines={4} style={styles.articleText}>{title}</Text>
            </View>
            <View style={{flexDirection: 'row'}}>
              <View style={{flex: 10, flexDirection: 'row'}}>
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
   },
   articleText: {
     fontFamily: "Roboto_medium",
-    fontSize: 11,
+    fontSize: 14,
     color: 'white',
     textAlign: 'center',
     fontWeight: 'bold'
