@@ -15,8 +15,8 @@ export default class Profile extends React.Component {
         <SafeAreaView style={styles.container}>
             <ScrollView showsVerticalScrollIndicator={false}>
                 <View style={styles.titleBar}>
-                    <Ionicons name="ios-arrow-back" size={24} color="#52575D"></Ionicons>
-                    <Ionicons name="md-more" size={24} color="#52575D"></Ionicons>
+                    {/*<Ionicons name="ios-arrow-back" size={24} color="#52575D"></Ionicons>
+                    <Ionicons name="md-more" size={24} color="#52575D"></Ionicons>*/}
                 </View>
 
                 <View style={{ alignSelf: "center" }}>
@@ -69,22 +69,29 @@ export default class Profile extends React.Component {
                         <Text style={[styles.text, { fontSize: 12, color: "#DFD8C8", textTransform: "uppercase" }]}>Media</Text>
                     </View>
                 </View>*/}
-                <Text style={[styles.subText, styles.recent]}>Recent Activity</Text>
+                <Text style={[styles.subText, styles.recent]}>Activité récente</Text>
                 <View style={{ alignItems: "center" }}>
                     <View style={styles.recentItem}>
                         <View style={styles.activityIndicator}></View>
                         <View style={{ width: 250 }}>
                             <Text style={[styles.text, { color: "#41444B", fontWeight: "300" }]}>
-                                Started following <Text style={{ fontWeight: "400" }}>Jake Challeahe</Text> and <Text style={{ fontWeight: "400" }}>Luis Poteer</Text>
+                                Abonnement à<Text style={{ fontWeight: "400" }}> #Space</Text> et <Text style={{ fontWeight: "400" }}>#Sport</Text>
                             </Text>
                         </View>
                     </View>
-
                     <View style={styles.recentItem}>
                         <View style={styles.activityIndicator}></View>
                         <View style={{ width: 250 }}>
                             <Text style={[styles.text, { color: "#41444B", fontWeight: "300" }]}>
-                                Started following <Text style={{ fontWeight: "400" }}>Luke Harper</Text>
+                                Abonnement à <Text style={{ fontWeight: "400" }}>#Coronavirus</Text>
+                            </Text>
+                        </View>
+                    </View>
+                    <View style={styles.recentItem}>
+                        <View style={styles.activityIndicator}></View>
+                        <View style={{ width: 250 }}>
+                            <Text style={[styles.text, { color: "#41444B", fontWeight: "300" }]}>
+                                Abonnement à <Text style={{ fontWeight: "400" }}>#Tech</Text>
                             </Text>
                         </View>
                     </View>
