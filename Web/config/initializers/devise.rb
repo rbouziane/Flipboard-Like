@@ -261,7 +261,6 @@ Devise.setup do |config|
   # up on your models and hooks.
   config.omniauth :facebook, "App ID", "App Secret", callback_url: "http://localhost:3000/auth/facebook/callback"
   config.omniauth :google_oauth2, ENV['GOOGLE_OAUTH_CLIENT_ID'], ENV['GOOGLE_OAUTH_CLIENT_SECRET']
-  config.omniauth :twitter, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

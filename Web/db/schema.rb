@@ -36,8 +36,6 @@ ActiveRecord::Schema.define(version: 2020_06_06_153533) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "facebook_provider"
     t.string "facebook_uid"
-    t.string "twitter_provider"
-    t.string "twitter_uid"
     t.string "name"
     t.text "image"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

@@ -28,7 +28,6 @@ gem 'pry'
 # Use Omniauth for connection trought other website
 gem 'omniauth'
 gem 'omniauth-facebook'
-gem 'omniauth-twitter'
 gem 'omniauth-google-oauth2'
 
 gem 'figaro'

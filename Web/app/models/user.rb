@@ -8,15 +8,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :trackable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable
-  devise :omniauthable, omniauth_providers: [:facebook, :twitter, :google_oauth2]
-
-  def self.new_with_session(params, session)
-    super.tap do |user|
-      if data = session[“devise.facebook_data”] && session[“devise.facebook_data”][“extra”][“raw_info”]
-        user.email = data[“email”] if user.email.blank?
-      end
-    end
-  end
+  devise :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
 
   def self.find_first_by_auth_conditions(warden_conditions)
     cond = warden_conditions.dup
