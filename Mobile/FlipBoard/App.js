@@ -55,6 +55,7 @@ export default class App extends React.Component {
 
         this.state = {
           appIsReady: false,
+          isLogged: false
         }
     }
 
@@ -83,7 +84,9 @@ export default class App extends React.Component {
       if (!this.state.appIsReady) {
           return <RootStack.Screen name={'Splash'} component={Splashscreen} />;
       }
-      // return <RootStack.Screen name={'AuthStack'} component={AuthStackNavigator} />
+      // if (!this.state.isLogged) {
+      //     return <RootStack.Screen name={'AuthStack'} component={AuthStackNavigator} />
+      // }
       return <RootStack.Screen name={'HomeStack'} component={HomeStackNavigator} />
     }
 
