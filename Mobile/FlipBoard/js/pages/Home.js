@@ -1,8 +1,11 @@
 import React from 'react'
-import { View, ImageBackground, Text, StyleSheet, Button } from 'react-native'
+import { View, ImageBackground, Text, StyleSheet } from 'react-native'
 import { Ionicons } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import NewsPaperView from './NewsPaperView'
+import {
+    Button,
+} from 'native-base';
 
 export default class Home extends React.Component {
     constructor() {
@@ -32,8 +35,13 @@ export default class Home extends React.Component {
       return (
         <ImageBackground style={{flex: 1}} imageStyle={styles.imageStyle} source={imagePath}>
           <View style={styles.container}>
-            <View style={{flexDirection: 'row-reverse'}}>
-              <Entypo name="chevron-down" size={18} color="white" />
+            <View style={{flex: 1, flexDirection: 'row-reverse'}}>
+              <Button
+                transparent
+                style={{height: null, width: null}}
+                onPress={this.handleItemDataOnPress}>
+                <Entypo name="chevron-down" size={22} color="white" />
+              </Button>
             </View>
             <View style={{flex: 3}}>
             </View>
@@ -63,10 +71,10 @@ export default class Home extends React.Component {
             <ImageBackground style={{flex: 1}} imageStyle={styles.imageStyle} source={require('../../assets/article/spaceX.jpg')}>
               <View style={styles.container}>
                 <View style={{flexDirection: 'row-reverse'}}>
-                  <Button title="Press me"
-                    color="#f194ff"
+                  <Button
+                    transparent
                     onPress={this.handleItemDataOnPress}>
-                    {/*<Entypo name="chevron-down" size={30} color="white" />*/}
+                    <Entypo name="chevron-down" size={30} color="white" />
                   </Button>
                 </View>
                 <View style={{flex: 3}}>
