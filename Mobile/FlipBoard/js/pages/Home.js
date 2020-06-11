@@ -2,10 +2,30 @@ import React from 'react'
 import { View, ImageBackground, Text, StyleSheet } from 'react-native'
 import { Ionicons } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
+import NewsPaperView from './NewsPaperView'
+import {
+    Button,
+} from 'native-base';
 
 export default class Home extends React.Component {
     constructor() {
         super();
+
+        this.state = {
+          setModalVisible: false,
+        }
+    }
+
+    handleItemDataOnPress = () => {
+      this.setState({
+        setModalVisible: true,
+      });
+    }
+
+    handleModalClose = () => {
+      this.setState({
+        setModalVisible: false,
+      });
     }
 
     componentDidMount() {
@@ -15,8 +35,13 @@ export default class Home extends React.Component {
       return (
         <ImageBackground style={{flex: 1}} imageStyle={styles.imageStyle} source={imagePath}>
           <View style={styles.container}>
-            <View style={{flexDirection: 'row-reverse'}}>
-              <Entypo name="chevron-down" size={18} color="white" />
+            <View style={{flex: 1, flexDirection: 'row-reverse'}}>
+              <Button
+                transparent
+                style={{height: null, width: null}}
+                onPress={this.handleItemDataOnPress}>
+                <Entypo name="chevron-down" size={22} color="white" />
+              </Button>
             </View>
             <View style={{flex: 3}}>
             </View>
@@ -46,7 +71,11 @@ export default class Home extends React.Component {
             <ImageBackground style={{flex: 1}} imageStyle={styles.imageStyle} source={require('../../assets/article/spaceX.jpg')}>
               <View style={styles.container}>
                 <View style={{flexDirection: 'row-reverse'}}>
-                  <Entypo name="chevron-down" size={30} color="white" />
+                  <Button
+                    transparent
+                    onPress={this.handleItemDataOnPress}>
+                    <Entypo name="chevron-down" size={30} color="white" />
+                  </Button>
                 </View>
                 <View style={{flex: 3}}>
                 </View>
@@ -94,6 +123,10 @@ export default class Home extends React.Component {
             </View>
             {/*Right Article */}
           </View>
+          <NewsPaperView
+            showModal={this.state.setModalVisible}
+            onClose={this.handleModalClose}
+          />
         </View>
       )
     }
