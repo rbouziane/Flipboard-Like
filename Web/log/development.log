@@ -4557,3 +4557,298 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 8ms (Views: 7.6ms | ActiveRecord: 0.0ms | Allocations: 4223)
 
 
+Started GET "/" for ::1 at 2020-06-14 15:52:30 +0200
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 253)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 43ms (Views: 33.7ms | ActiveRecord: 0.0ms | Allocations: 10958)
+
+
+Started GET "/" for ::1 at 2020-06-14 17:11:58 +0200
+  [1m[35m (3.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 202)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 29ms (Views: 17.3ms | ActiveRecord: 0.0ms | Allocations: 8625)
+
+
+Started GET "/" for ::1 at 2020-06-14 17:14:06 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  
+SyntaxError (/home/Yiazmat/Project3EndOfYear/Web/app/helpers/medium_news_helper.rb:12: syntax error, unexpected end, expecting end-of-input):
+  
+app/helpers/medium_news_helper.rb:12: syntax error, unexpected end, expecting end-of-input
+app/helpers/medium_news_helper.rb:12: syntax error, unexpected end, expecting end-of-input
+app/helpers/medium_news_helper.rb:12: syntax error, unexpected end, expecting end-of-input
+app/controllers/application_controller.rb:1:in `<main>'
+app/controllers/home_controller.rb:1:in `<main>'
+Started GET "/" for ::1 at 2020-06-14 17:14:35 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  
+NameError (uninitialized constant MediumNewsHelper
+Did you mean?  Medium_news_helper):
+  
+app/controllers/application_controller.rb:1:in `<main>'
+app/controllers/home_controller.rb:1:in `<main>'
+Started GET "/" for ::1 at 2020-06-14 17:16:50 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 1050)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 3280)
+
+
+  
+ActionView::Template::Error (No such file or directory @ rb_sysopen - https:://medium.com/feed/):
+    1: <p>
+    2:   FlipBoard here :3
+    3:   <% medium_news %>
+    4: </p>
+  
+app/helpers/home_helper.rb:5:in `medium_news'
+app/views/home/index.html.erb:3
+Started GET "/" for ::1 at 2020-06-14 17:17:50 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 942)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 2351)
+
+
+  
+ActionView::Template::Error (No such file or directory @ rb_sysopen - https:://medium.com/feed/alturasoluciones):
+    1: <p>
+    2:   FlipBoard here :3
+    3:   <% medium_news %>
+    4: </p>
+  
+app/helpers/home_helper.rb:5:in `medium_news'
+app/views/home/index.html.erb:3
+Started GET "/" for ::1 at 2020-06-14 17:29:43 +0200
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1856.4ms | Allocations: 31742)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1884ms (Views: 1872.8ms | ActiveRecord: 0.0ms | Allocations: 40993)
+
+
+Started GET "/" for ::1 at 2020-06-14 17:33:40 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 2138.1ms | Allocations: 29969)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 2150ms (Views: 2146.5ms | ActiveRecord: 0.0ms | Allocations: 35082)
+
+
+Started GET "/" for ::1 at 2020-06-14 17:34:07 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 2114.8ms | Allocations: 32197)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 2127ms (Views: 2125.2ms | ActiveRecord: 0.0ms | Allocations: 37315)
+
+
+Started GET "/" for ::1 at 2020-06-14 17:36:46 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1660.1ms | Allocations: 29960)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1670ms (Views: 1667.2ms | ActiveRecord: 0.0ms | Allocations: 35069)
+
+
+Started GET "/" for ::1 at 2020-06-14 17:37:11 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 2389.3ms | Allocations: 31052)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 2411ms (Views: 2403.1ms | ActiveRecord: 0.0ms | Allocations: 40413)
+
+
+Started GET "/users/sign_up" for ::1 at 2020-06-14 17:38:30 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 2.1ms | Allocations: 207)
+  Rendered devise/shared/_links.html.erb (Duration: 2.7ms | Allocations: 739)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 30.6ms | Allocations: 5373)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 118ms (Views: 52.0ms | ActiveRecord: 0.8ms | Allocations: 29278)
+
+
+Started GET "/" for ::1 at 2020-06-14 17:38:32 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 4690.4ms | Allocations: 27832)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 4697ms (Views: 4696.0ms | ActiveRecord: 0.0ms | Allocations: 32043)
+
+
+Started GET "/" for ::1 at 2020-06-14 17:41:20 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1585.3ms | Allocations: 32860)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1593ms (Views: 1589.7ms | ActiveRecord: 0.0ms | Allocations: 37974)
+
+
+Started GET "/" for ::1 at 2020-06-14 17:41:52 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 3349.2ms | Allocations: 29895)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 3355ms (Views: 3353.2ms | ActiveRecord: 0.0ms | Allocations: 35007)
+
+
+Started GET "/" for ::1 at 2020-06-14 17:44:58 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 2412.6ms | Allocations: 14008)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 2426ms (Views: 2424.9ms | ActiveRecord: 0.0ms | Allocations: 19123)
+
+
+Started GET "/" for ::1 at 2020-06-14 17:54:02 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 2416.7ms | Allocations: 30614)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 2425ms (Views: 2420.6ms | ActiveRecord: 0.0ms | Allocations: 35719)
+
+
+Started GET "/" for ::1 at 2020-06-14 17:54:24 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 2229.9ms | Allocations: 30299)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 2240ms (Views: 2238.7ms | ActiveRecord: 0.0ms | Allocations: 35383)
+
+
+Started GET "/" for ::1 at 2020-06-14 17:54:44 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1661.0ms | Allocations: 31955)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1669ms (Views: 1667.1ms | ActiveRecord: 0.0ms | Allocations: 37065)
+
+
+Started GET "/" for ::1 at 2020-06-14 17:56:28 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1701.7ms | Allocations: 30529)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1713ms (Views: 1711.3ms | ActiveRecord: 0.0ms | Allocations: 35636)
+
+
+Started GET "/" for ::1 at 2020-06-14 17:56:44 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 3069.7ms | Allocations: 31065)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 3077ms (Views: 3076.2ms | ActiveRecord: 0.0ms | Allocations: 35244)
+
+
+Started GET "/" for ::1 at 2020-06-14 17:59:20 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 2080.0ms | Allocations: 29279)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 2089ms (Views: 2085.4ms | ActiveRecord: 0.0ms | Allocations: 34362)
+
+
+Started GET "/" for ::1 at 2020-06-14 18:06:53 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1645.2ms | Allocations: 29299)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1654ms (Views: 1652.0ms | ActiveRecord: 0.0ms | Allocations: 35572)
+
+
+Started GET "/" for ::1 at 2020-06-14 18:07:25 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 2987.8ms | Allocations: 923159)
+Completed 500 Internal Server Error in 2998ms (ActiveRecord: 0.0ms | Allocations: 924519)
+
+
+  
+ActionView::Template::Error (undefined method `html' for #<Nokogiri::HTML::Document:0x0000563b25ae2e30>
+Did you mean?  html?):
+    1: <p>
+    2:   FlipBoard here :3
+    3:   <%= medium_news.html %>
+    4: </p>
+  
+app/views/home/index.html.erb:3
+Started GET "/" for ::1 at 2020-06-14 18:08:02 +0200
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 2105.5ms | Allocations: 924518)
+Completed 500 Internal Server Error in 2109ms (ActiveRecord: 0.0ms | Allocations: 926614)
+
+
+  
+ActionView::Template::Error (undefined method `html' for #<Nokogiri::HTML::Document:0x00007f0cd21325c8>
+Did you mean?  html?):
+    1: <p>
+    2:   FlipBoard here :3
+    3:   <%= medium_news %>
+    4: </p>
+  
+app/helpers/home_helper.rb:8:in `medium_news'
+app/views/home/index.html.erb:3
+Started GET "/" for ::1 at 2020-06-14 18:09:40 +0200
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 2441.8ms | Allocations: 28707)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 2448ms (Views: 2446.2ms | ActiveRecord: 0.0ms | Allocations: 34264)
+
+
+Started GET "/" for ::1 at 2020-06-14 18:10:47 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 8055.2ms | Allocations: 29531)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8073ms (Views: 8066.7ms | ActiveRecord: 0.0ms | Allocations: 34723)
+
+
+Started GET "/" for 127.0.0.1 at 2020-06-14 18:34:22 +0200
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 2450.6ms | Allocations: 43025)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 2457ms (Views: 2455.4ms | ActiveRecord: 0.0ms | Allocations: 49193)
+
+
+Started GET "/" for 127.0.0.1 at 2020-06-14 18:34:55 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 7224.7ms | Allocations: 44530)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7234ms (Views: 7230.7ms | ActiveRecord: 0.0ms | Allocations: 49941)
+
+
