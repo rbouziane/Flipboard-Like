@@ -23,6 +23,7 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 const Drawer = createDrawerNavigator();
 
 import DrawerContent from './js/navigation/DrawerContent'
+import Login from './js/pages/Login'
 
 const RootStack = createStackNavigator();
 
@@ -84,9 +85,9 @@ export default class App extends React.Component {
       if (!this.state.appIsReady) {
           return <RootStack.Screen name={'Splash'} component={Splashscreen} />;
       }
-      // if (!this.state.isLogged) {
-      //     return <RootStack.Screen name={'AuthStack'} component={AuthStackNavigator} />
-      // }
+      if (!this.isLogged) {
+         return <RootStack.Screen name={'AuthStack'} component={AuthStackNavigator} />
+      }
       return <RootStack.Screen name={'HomeStack'} component={HomeStackNavigator} />
     }
 

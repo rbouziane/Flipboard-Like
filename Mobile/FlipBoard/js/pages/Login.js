@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, Dimensions, TextInput } from 'react-native';
-
+import { View, Text, StyleSheet, Image, Dimensions, TextInput, Button } from 'react-native';
 import Animated, { Easing } from 'react-native-reanimated';
 import { TapGestureHandler, State } from 'react-native-gesture-handler';
+import Firebase from '../Login/FirebaseComande'
+
 const { width, height } = Dimensions.get('window');
 
 const {
@@ -51,10 +52,14 @@ function runTiming(clock, value, dest) {
     state.position
   ]);
 }
-class MusicApp extends Component {
+class Login extends Component {
   constructor() {
     super();
 
+    this.state = {
+      email: '',
+      password: ''
+    }
     this.buttonOpacity = new Value(1);
 
     this.onStateChange = event([
@@ -113,6 +118,10 @@ class MusicApp extends Component {
       extrapolate: Extrapolate.CLAMP
     });
   }
+  PressIN = () => {
+      const result = Firebase.Conect(this.state.email, this.state.password)
+      console.log(result);
+  }
   render() {
     return (
       <View
@@ -148,7 +157,7 @@ class MusicApp extends Component {
           <Animated.View
             style={{
               ...styles.button,
-              backgroundColor: '#2E71DC',
+              backgroundColor: '#e71d25',
               opacity: this.buttonOpacity,
               transform: [{ translateY: this.buttonY }]
             }}
@@ -179,13 +188,22 @@ class MusicApp extends Component {
               placeholder="EMAIL"
               style={styles.textInput}
               placeholderTextColor="black"
+              value={this.state.email}
+               onChangeText={text => this.setState({ email: text })}
               />
               <TextInput
               placeholder="Password"
               style={styles.textInput}
               placeholderTextColor="black"
+              value={this.state.password}
+              onChangeText={text => this.setState({ password: text })}
               />
               <Animated.View style={styles.button}>
+                  <Button style={{fontSize: 20, fontWeight: 'bold'}}
+                   title='SIGN IN'
+                   onPress={()=>this.PressIN()}
+                   >
+                  </Button>
                   <Text style={{fontSize: 20, fontWeight: 'bold'}}>SIGN IN</Text>
               </Animated.View>
           </Animated.View>
@@ -194,7 +212,7 @@ class MusicApp extends Component {
     );
   }
 }
-export default MusicApp;
+export default Login;
 
 const styles = StyleSheet.create({
   container: {
