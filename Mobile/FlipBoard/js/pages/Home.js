@@ -1,7 +1,9 @@
 import React from 'react'
-import { View, ImageBackground, Text, StyleSheet } from 'react-native'
+import { View, ImageBackground, Text, StyleSheet, ActivityIndicator } from 'react-native'
 import { Ionicons } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
+import { getNews } from "./API"
+
 import NewsPaperView from './NewsPaperView'
 import {
     Button,
@@ -13,13 +15,17 @@ export default class Home extends React.Component {
 
         this.state = {
           setModalVisible: false,
+          articles: [],
+          isReady: false,
+          urlToOpen: "",
         }
     }
 
-    handleItemDataOnPress = () => {
+    handleItemDataOnPress = (url) => {
       this.setState({
         setModalVisible: true,
-      });
+        urlToOpen: url
+      })
     }
 
     handleModalClose = () => {
@@ -28,18 +34,29 @@ export default class Home extends React.Component {
       });
     }
 
-    componentDidMount() {
+    async componentDidMount() {
+      this.fetchNews();
     }
 
-    secondArticle(imagePath, title, editorName) {
+    async fetchNews() {
+      let articles
+      try {
+        articles = await getNews("5")
+        this.setState({articles: articles, isReady: true});
+      } catch(e) {
+        console.log("Error", e)
+      }
+    }
+
+    secondArticle(imagePath, title, editorName, url) {
       return (
-        <ImageBackground style={{flex: 1}} imageStyle={styles.imageStyle} source={imagePath}>
+        <ImageBackground style={{flex: 1}} imageStyle={styles.imageStyle} source={{uri: imagePath}}>
           <View style={styles.container}>
             <View style={{flex: 1, flexDirection: 'row-reverse'}}>
               <Button
                 transparent
                 style={{height: null, width: null}}
-                onPress={this.handleItemDataOnPress}>
+                onPress={() => this.handleItemDataOnPress(url)}>
                 <Entypo name="chevron-down" size={22} color="white" />
               </Button>
             </View>
@@ -63,29 +80,30 @@ export default class Home extends React.Component {
     }
 
     render() {
+      if (this.state.isReady) {
       return (
         // <View style={{flex: 1, backgroundColor: "#333333"}}>
         <View style={{flex: 1, backgroundColor: "#F8F8FF"}}>
           {/* Main Article */}
           <View style={styles.container}>
-            <ImageBackground style={{flex: 1}} imageStyle={styles.imageStyle} source={require('../../assets/article/spaceX.jpg')}>
+            <ImageBackground style={{flex: 1}} imageStyle={styles.imageStyle} source={{uri: this.state.articles[0].urlToImage}}>
               <View style={styles.container}>
                 <View style={{flexDirection: 'row-reverse'}}>
                   <Button
                     transparent
-                    onPress={this.handleItemDataOnPress}>
+                    onPress={() => this.handleItemDataOnPress(this.state.articles[0].url)}>
                     <Entypo name="chevron-down" size={30} color="white" />
                   </Button>
                 </View>
                 <View style={{flex: 3}}>
                 </View>
-                <View style={{flex: 1.5, marginHorizontal: 10}}>
-                  <Text numberOfLines={3} style={styles.mainArticleText}>SpaceX Starship : un autre prototype part en fumée</Text>
+                <View style={{flex: 4, marginHorizontal: 10}}>
+                  <Text numberOfLines={3} style={styles.mainArticleText}>{this.state.articles[0].title}</Text>
                 </View>
                 <View style={{flexDirection: 'row'}}>
                   <View style={{flex: 1, flexDirection: 'row'}}>
                     <Ionicons name="ios-flash" size={18} color="red" />
-                    <Text style={styles.mainEditorName}>FredZone . 1h</Text>
+                    <Text style={styles.mainEditorName}>{this.state.articles[0].source.name}</Text>
                   </View>
                   <View style={styles.mainDotsView}>
                     <Entypo name="dots-three-vertical" size={18} color="white"/>
@@ -100,10 +118,10 @@ export default class Home extends React.Component {
             <View style={styles.rightBorderView}>
               <View style={{margin: 5, flex: 1}}>
                 <View style={{marginBottom: 5, flex: 2}}>
-                  {this.secondArticle(require("../../assets/article/Zurich.jpg"), "Bourse Zurich: le SMI s'envole au-dessus des 10'000 points", "Agefi . 1h")}
+                  {this.secondArticle(this.state.articles[1].urlToImage, this.state.articles[1].title, this.state.articles[1].source.name, this.state.articles[1].url)}
                 </View>
                 <View style={{flex: 2}}>
-                  {this.secondArticle(require("../../assets/article/JO.jpeg"), "Vers des Jeux olympiques « simplifiés » à Tokyo en 2021", "RMC Sport . 1J")}
+                  {this.secondArticle(this.state.articles[2].urlToImage, this.state.articles[2].title, this.state.articles[2].source.name, this.state.articles[2].url)}
                 </View>
               </View>
             </View>
@@ -113,10 +131,10 @@ export default class Home extends React.Component {
               <View style={styles.rightBorderView}>
                 <View style={{margin: 5, flex: 1}}>
                   <View style={{marginBottom: 5, flex: 2}}>
-                    {this.secondArticle(require("../../assets/article/perou.jpg"), "Covid-19 : le Pérou au bord de l'asphyxies", "EuroNews Français . 14h")}
+                    {this.secondArticle(this.state.articles[3].urlToImage, this.state.articles[3].title, this.state.articles[3].source.name, this.state.articles[3].url)}
                   </View>
                   <View style={{flex: 2}}>
-                    {this.secondArticle(require("../../assets/article/Business.jpeg"), "Croissance: rebond attendu à 0,3% au 1er trimestre 2020, selon la Banque de France", "BFM Business . 2J")}
+                    {this.secondArticle(this.state.articles[4].urlToImage, this.state.articles[4].title, this.state.articles[4].source.name, this.state.articles[4].url)}
                   </View>
                 </View>
               </View>
@@ -125,11 +143,19 @@ export default class Home extends React.Component {
           </View>
           <NewsPaperView
             showModal={this.state.setModalVisible}
+            url={this.state.urlToOpen}
             onClose={this.handleModalClose}
           />
         </View>
       )
     }
+    else
+      return (
+          <View style={{flex: 1, justifyContent: 'center'}}>
+            <ActivityIndicator size="large" color="#e71d25"/>
+          </View>
+      )
+  }
 }
 
 const styles = StyleSheet.create({

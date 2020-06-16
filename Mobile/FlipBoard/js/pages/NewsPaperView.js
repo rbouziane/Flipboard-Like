@@ -1,16 +1,15 @@
 import React from 'react'
-import { View, Share, Dimensions, Modal } from 'react-native'
-import {Container, Header, Content, Body, Left, Icon, Right, Title, Button} from 'native-base';
+import { View, Share, Modal } from 'react-native'
+import { Body, Left, Icon, Right, Title, Button, ActivityIndicator } from 'native-base';
 import { WebView } from 'react-native-webview';
 
 export default class NewsPaperView extends React.Component {
     constructor() {
         super();
-        this.url = "https://fr.euronews.com/2020/06/11/coronavirus-l-europe-rouvre-ses-frontieres-l-oms-s-inquiete"
     }
 
     handleShare = () => {
-      const url = this.url;
+      const { url } = this.props;
       const title = "L'article";
       var message = `${title}\n\nRead More ${url}\n\nShared via FlipBoard Like App`;
       return Share.share(
@@ -24,10 +23,9 @@ export default class NewsPaperView extends React.Component {
     }
 
     render() {
-        const { showModal } = this.props;
-        const title = "l'article";
-        const url = this.url;
-        if (url != undefined) {
+        const { showModal, url } = this.props;
+        const title = "Article";
+        if (url != null) {
           return (
             <Modal
               animationType="slide"
@@ -61,7 +59,11 @@ export default class NewsPaperView extends React.Component {
           )
         }
         else {
-          return null
+          return (
+              <View style={{flex: 1, justifyContent: 'center'}}>
+                <ActivityIndicator size="large" color="#e71d25"/>
+              </View>
+          )
         }
     }
 }

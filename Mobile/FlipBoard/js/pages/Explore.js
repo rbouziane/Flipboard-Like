@@ -2,90 +2,127 @@ import React from 'react'
 import {
   Text
 } from 'native-base';
-import { View, ImageBackground, StyleSheet, ScrollView } from 'react-native'
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { View, ImageBackground, StyleSheet, ActivityIndicator, Dimensions} from 'react-native'
 import { Ionicons } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import { Searchbar, Title } from 'react-native-paper';
+import NewsPaperView from './NewsPaperView'
+import { getNews } from "./API"
+import {
+    Button,
+    Container,
+    Content
+} from 'native-base';
+
+const windowHeight = Dimensions.get('window').height;
 
 export default class Explore extends React.Component {
     constructor() {
         super();
+
+        this.state = {
+          setModalVisible: false,
+          articles: [],
+          isReady: false,
+          urlToOpen: "",
+          searchQuery: 'Science',
+        }
     }
 
-    componentDidMount() {
+    _onChangeSearch = query => this.setState({ searchQuery: query });
+
+    handleItemDataOnPress = (url) => {
+      this.setState({
+        setModalVisible: true,
+        urlToOpen: url
+      })
     }
-    Article(imagePath, title, editorName) {
-     return (
-       <ImageBackground style={{flex: 1}} imageStyle={styles.imageStyle} source={imagePath}>
-         <View style={styles.container}>
-           <View style={{flexDirection: 'row-reverse'}}>
-             <Entypo name="chevron-down" size={18} color="white" />
-           </View>
-           <View style={{flex: 3}}>
-           </View>
-           <View style={{flex: 4, marginHorizontal: 10}}>
-             <Text numberOfLines={4} style={styles.articleText}>{title}</Text>
-           </View>
-           <View style={{flexDirection: 'row'}}>
-             <View style={{flex: 10, flexDirection: 'row'}}>
-               <Ionicons name="ios-flash" size={15} color="red" />
-               <Text style={styles.editorName}>{editorName}</Text>
-             </View>
-             <View style={styles.mainDotsView}>
-               <Entypo name="dots-three-vertical" size={15} color="white"/>
-             </View>
-           </View>
-         </View>
-       </ImageBackground>
-     )}
+
+    handleModalClose = () => {
+      this.setState({
+        setModalVisible: false,
+      });
+    }
+
+    async componentDidMount() {
+      this.fetchNews(this.state.searchQuery);
+    }
+
+    async fetchNews(category) {
+      this.setState({isReady: false});
+      let articles
+      try {
+        articles = await getNews("10", category)
+        if (articles.length != 0)
+          this.setState({articles: articles, isReady: true});
+      } catch(e) {
+        console.log("Error", e)
+      }
+    }
+
+    articleList (article) {
+      return (
+        <View key={article.title} style={{margin: 5, height: windowHeight / 3.5}}>
+        <ImageBackground style={{flex: 1}} imageStyle={styles.imageStyle} source={{uri: article.urlToImage}}>
+          <View style={styles.container}>
+            <View style={{flexDirection: 'row-reverse'}}>
+             <Button
+               transparent
+               style={{height: null, width: null}}
+               onPress={() => this.handleItemDataOnPress(article.url)}>
+               <Entypo name="chevron-down" size={22} color="white" />
+             </Button>
+            </View>
+            <View style={{flex: 3}}>
+            </View>
+            <View style={{flex: 4, marginHorizontal: 10}}>
+              <Text numberOfLines={3} style={styles.articleText}>{article.title}</Text>
+            </View>
+            <View style={{flexDirection: 'row'}}>
+              <View style={{flex: 10, flexDirection: 'row'}}>
+                <Ionicons name="ios-flash" size={15} color="red" />
+                <Text style={styles.editorName}>{article.source.name}</Text>
+              </View>
+              <View style={styles.mainDotsView}>
+                <Entypo name="dots-three-vertical" size={15} color="white"/>
+              </View>
+            </View>
+          </View>
+        </ImageBackground>
+        </View>
+      )
+    }
+
     render() {
       return (
-        <View style={{flex: 1, backgroundColor: "#F8F8FF"}}>
-        <Searchbar style={{margin: 10, backgroundColor: "#b0abaa", borderRadius: 20}} placeholder="Rechercher sur Flipboard" onChangeText={this._onChangeSearch}/>
-        <Title style={styles.titleInfos}>INÉDIT</Title>
-          {/*Left Article */}
-          <View style={{flexDirection: 'row', flex: 1}}>
-          <View style={styles.rightBorderView}>
-            <View style={{margin: 5, flex: 1}}>
-                {this.Article(require("../../assets/explore/News1.jpg"), "Propos racistes dans la police : six policiers de Rouen en conseil de discipline, la justice saisie dans une autre affaire ", "Le Monde. 5h")}
-            </View>
-          </View>
-          {/*Left Article */}
-          {/*Right Article */}
-          <View style={{flexDirection: 'row', flex: 1}}>
-            <View style={styles.rightBorderView}>
-              <View style={{margin: 5, flex: 1}}>
-                  {this.Article(require("../../assets/explore/News2.jpg"), "William Barr, le bouclier de Donald Trump", "Le Parisien. 5h")}
-              </View>
-            </View>
-          </View>
-          {/*Left Article */}
-        </View>
-
-          {/*Left Article */}
-        <View style={{flex: 1}}>
-          <View style={{flexDirection: 'row', flex: 1}}>
-            <View style={styles.rightBorderView}>
-              <View style={{margin: 5, flex: 1}}>
-                {this.Article(require("../../assets/explore/News3.jpg"), "Des restructurations au coronavirus, l’apport controversé des cabinets de consulting à l’hôpital", "Le monde . 2h")}
-              </View>
-            </View>
-              {/*Left Article */}
-              {/*Right Article */}
-            <View style={{flexDirection: 'row', flex: 1}}>
-              <View style={styles.rightBorderView}>
-                <View style={{margin: 5, flex: 1}}>
-                        {this.Article(require("../../assets/explore/News4.jpg"), "Jordan Peterson, nouveau héraut des masculinistes", "Kombini. 5h")}
+        <Container style={{flex: 1, backgroundColor: "#F8F8FF"}}>
+          <Content contentContainerStyle={{flexGrow: 1}}>
+            <Searchbar
+              style={{margin: 10, backgroundColor: "#b0abaa", borderRadius: 20}}
+              placeholder="Rechercher sur Flipboard"
+              onSubmitEditing={() => this.fetchNews(this.state.searchQuery)}
+              onChangeText={this._onChangeSearch}
+              value={this.state.searchQuery}/>
+            <Title style={styles.titleInfos}>INÉDIT</Title>
+            {this.state.isReady == true
+              ?
+                <View style={{flexGrow: 1}}>
+                  {this.state.articles.map((article) => this.articleList(article))}
                 </View>
-              </View>
-            </View>
-        </View>
-      </View>
-      {/*Right Article */}
-    </View>
-    )
-  }
+              :
+                <View style={{flexGrow: 1, justifyContent: 'center'}}>
+                  <ActivityIndicator size="large" color="#e71d25"/>
+                </View>
+            }
+          </Content>
+          <NewsPaperView
+            showModal={this.state.setModalVisible}
+            url={this.state.urlToOpen}
+            onClose={this.handleModalClose}
+          />
+        </Container>
+      )
+    }
 }
 
 const styles = StyleSheet.create({
@@ -96,7 +133,7 @@ const styles = StyleSheet.create({
   },
   articleText: {
     fontFamily: "Roboto_medium",
-    fontSize: 14,
+    fontSize: 17,
     color: 'white',
     textAlign: 'center',
     fontWeight: 'bold'
@@ -131,7 +168,6 @@ const styles = StyleSheet.create({
   container: {
       flex: 1,
       margin: 10,
-      //marginTop: 90
   },
   mainDotsView: {
       flex: 1,
