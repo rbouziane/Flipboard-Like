@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, Dimensions, TextInput, Button, AsyncStorage } from 'react-native';
+import { View, Text, StyleSheet, Image, Dimensions, TextInput, Button } from 'react-native';
 import Animated, { Easing } from 'react-native-reanimated';
 import { TapGestureHandler, State } from 'react-native-gesture-handler';
 import { SignInFirebase } from '../Login/FirebaseAPI'
@@ -61,7 +61,6 @@ const SignInButton = (props) => {
 
     const storeIsLogged = async (email) => {
       try {
-        await AsyncStorage.setItem('userLogged', email);
         signIn(email);
       } catch (error) {
           console.log(error);
@@ -228,7 +227,7 @@ class Login extends Component {
               </Animated.View>
             </TapGestureHandler>
               <TextInput
-              placeholder="EMAIL"
+              placeholder="E-mail"
               style={styles.textInput}
               placeholderTextColor="black"
               value={this.state.email}

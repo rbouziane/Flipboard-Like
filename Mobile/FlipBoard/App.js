@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Splashscreen } from './js/pages/screens/SplashScreen'
 import { AsyncStorage } from 'react-native'
 import {
@@ -96,10 +96,20 @@ const Render = ()  => {
   const [userEmail, setUserEmail] = React.useState(null);
 
   const authContext = React.useMemo(() => ({
-    signIn: (email) => {
+    signIn: async (email) => {
+      try {
+        await AsyncStorage.setItem('userLogged', email)
+      } catch(e) {
+        console.log(e)
+      }
       setUserEmail(email);
     },
-    signOut: () => {
+    signOut: async () => {
+      try {
+        await AsyncStorage.removeItem('userLogged')
+      } catch(e) {
+        console.log(e)
+      }
       setUserEmail(null)
     },
     signUp: (email) =>  {
@@ -107,6 +117,19 @@ const Render = ()  => {
     }
 
   }))
+
+  useEffect(() => {
+    setTimeout(async() => {
+      let userToken;
+      userToken = null;
+      try {
+        userToken = await AsyncStorage.getItem('userLogged');
+        setUserEmail(userToken);
+      } catch(e) {
+        console.log(e);
+      }
+    });
+  });
 
   return (
     <AuthContext.Provider value={authContext}>

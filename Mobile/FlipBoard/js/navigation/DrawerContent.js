@@ -1,5 +1,5 @@
 import React from'react';
-import { View, StyleSheet, AsyncStorage } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import {
     useTheme,
     Avatar,
@@ -30,8 +30,6 @@ export default function DrawerContent(props) {
 
   const storeIsNotLogged = async () => {
     try {
-        await AsyncStorage.setItem('userLogged', "");
-        console.log("here")
         signOut();
     } catch (error) {
       console.log(error);

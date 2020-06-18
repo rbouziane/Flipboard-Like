@@ -19,7 +19,7 @@ export default class Subscription extends React.Component {
             <Text style={styles.articleText}>{subscription}</Text>
             <View style={styles.mainDotsView}>
               <Button transparent onPress={()=>{this.props.navigation.navigate('Rechercher', {name: 'anything you want here'})}}>
-                <FontAwesome5 style={{margin: 10, flexDirection: 'row-reverse'}} name="arrow-alt-circle-down" size={22} color="white" />
+                <FontAwesome5 style={{margin: 10, flexDirection: 'row-reverse'}} name="arrow-alt-circle-right" size={22} color="white" />
               </Button>
             </View>
           </View>
