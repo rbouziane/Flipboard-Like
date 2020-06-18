@@ -4,9 +4,29 @@ import { Button } from 'native-base'
 import { Searchbar } from 'react-native-paper';
 import { FontAwesome5 } from '@expo/vector-icons';
 
+import NewsPaperView from './NewsPaperView'
+
 export default class Subscription extends React.Component {
     constructor() {
         super();
+
+        this.state = {
+          setModalVisible: false,
+          urlToOpen: "",
+        }
+    }
+
+    handleItemDataOnPress = (url) => {
+      this.setState({
+        setModalVisible: true,
+        urlToOpen: url
+      })
+    }
+
+    handleModalClose = () => {
+      this.setState({
+        setModalVisible: false,
+      });
     }
 
     componentDidMount() {
@@ -18,7 +38,7 @@ export default class Subscription extends React.Component {
           <View style={{flex: 1, flexDirection: "row"}}>
             <Text style={styles.articleText}>{subscription}</Text>
             <View style={styles.mainDotsView}>
-              <Button transparent onPress={()=>{this.props.navigation.navigate('Rechercher', {name: 'anything you want here'})}}>
+              <Button transparent onPress={() => this.handleItemDataOnPress("https://flipboard.com/topic/fr-" + subscription.replace('#', ''))}>
                 <FontAwesome5 style={{margin: 10, flexDirection: 'row-reverse'}} name="arrow-alt-circle-right" size={22} color="white" />
               </Button>
             </View>
@@ -55,6 +75,12 @@ export default class Subscription extends React.Component {
               {this.imageSubscription(require("../../assets/subscription/bourse.jpg"), "#Économie")}
             </View>
           </View>
+          <NewsPaperView
+          showModal={this.state.setModalVisible}
+          url={this.state.urlToOpen}
+          headerTitle={"Abonnements"}
+          onClose={this.handleModalClose}
+          />
         </View>
       )
     }

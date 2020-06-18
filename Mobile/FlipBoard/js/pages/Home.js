@@ -144,6 +144,7 @@ export default class Home extends React.Component {
           <NewsPaperView
             showModal={this.state.setModalVisible}
             url={this.state.urlToOpen}
+            headerTitle={"Article"}
             onClose={this.handleModalClose}
           />
         </View>

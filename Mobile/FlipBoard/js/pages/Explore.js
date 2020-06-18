@@ -7,7 +7,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import { Searchbar, Title } from 'react-native-paper';
 import NewsPaperView from './NewsPaperView'
-import { getNewsEverything } from "./API"
+import { getNewsEverything, getNewsTopHeadlines } from "./API"
 import {
     Button,
     Container,
@@ -52,7 +52,12 @@ export default class Explore extends React.Component {
       this.setState({isReady: false});
       let articles
       try {
-        articles = await getNewsEverything("10", category)
+        if (category == "") {
+            articles = await getNewsTopHeadlines("10")
+        }
+        else {
+            articles = await getNewsEverything("10", category)
+        }
         if (articles.length != 0)
           this.setState({articles: articles, isReady: true});
       } catch(e) {
@@ -94,9 +99,6 @@ export default class Explore extends React.Component {
     }
 
     render() {
-      // const { params } = this.props.navigation.state;
-      // const itemId = params ? params.itemId : null;
-      // console.log(itemId);
       return (
         <Container style={{flex: 1, backgroundColor: "#F8F8FF"}}>
           <Content contentContainerStyle={{flexGrow: 1}}>
@@ -121,6 +123,7 @@ export default class Explore extends React.Component {
           <NewsPaperView
             showModal={this.state.setModalVisible}
             url={this.state.urlToOpen}
+            headerTitle={"Article"}
             onClose={this.handleModalClose}
           />
         </Container>

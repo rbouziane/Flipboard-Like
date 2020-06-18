@@ -23,8 +23,8 @@ export default class NewsPaperView extends React.Component {
     }
 
     render() {
-        const { showModal, url } = this.props;
-        const title = "Article";
+        const { showModal, url, headerTitle} = this.props;
+        const title = headerTitle;
         if (url != null) {
           return (
             <Modal
