@@ -4852,3 +4852,217 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 7234ms (Views: 7230.7ms | ActiveRecord: 0.0ms | Allocations: 49941)
 
 
+Started GET "/" for 127.0.0.1 at 2020-06-15 14:47:43 +0200
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 3847.2ms | Allocations: 47384)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 3881ms (Views: 3867.2ms | ActiveRecord: 0.0ms | Allocations: 56529)
+
+
+Started GET "/" for ::1 at 2020-06-17 15:46:06 +0200
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 2723.6ms | Allocations: 36677)
+Completed 500 Internal Server Error in 2735ms (ActiveRecord: 0.0ms | Allocations: 39841)
+
+
+  
+ActionView::Template::Error (TooManyRequestsException):
+    1: <p>
+    2:   <%= google_news %><br>
+    3:   <%= apple_news %><br>
+    4:   <%= lemonde_news %><br>
+    5:   <%= minutes_news %><br>
+    6: </p>
+  
+app/helpers/home_helper.rb:8:in `apple_news'
+app/views/home/index.html.erb:3
+Started GET "/" for ::1 at 2020-06-17 15:46:57 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 2541.4ms | Allocations: 31712)
+Completed 500 Internal Server Error in 2545ms (ActiveRecord: 0.0ms | Allocations: 33119)
+
+
+  
+ActionView::Template::Error (TooManyRequestsException):
+    1: <p>
+    2:   <%= google_news %><br>
+    3:   <%= apple_news %><br>
+    4:   <%= lemonde_news %><br>
+    5:   <%= minutes_news %><br>
+    6: </p>
+  
+app/helpers/home_helper.rb:8:in `apple_news'
+app/views/home/index.html.erb:3
+Started GET "/" for ::1 at 2020-06-17 15:48:23 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 2602.1ms | Allocations: 35256)
+Completed 500 Internal Server Error in 2605ms (ActiveRecord: 0.0ms | Allocations: 36665)
+
+
+  
+ActionView::Template::Error (TooManyRequestsException):
+    1: <p>
+    2:   <%= google_news %><br>
+    3:   <%= apple_news %><br>
+    4:   <%= lemonde_news %><br>
+    5:   <%= minutes_news %><br>
+    6: </p>
+  
+app/helpers/home_helper.rb:8:in `apple_news'
+app/views/home/index.html.erb:3
+Started GET "/" for ::1 at 2020-06-17 15:48:57 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 3158.5ms | Allocations: 194403)
+Completed 500 Internal Server Error in 3161ms (ActiveRecord: 0.0ms | Allocations: 195812)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `doc' for #<#<Class:0x000055ef3ad4b7d0>:0x000055ef3ad488a0>):
+    1: <p>
+    2:   <%= google_news %><br>
+    3:   <%= apple_news %><br>
+    4:   <%= lemonde_news %><br>
+    5:   <%= minutes_news %><br>
+    6: </p>
+  
+app/helpers/home_helper.rb:10:in `apple_news'
+app/views/home/index.html.erb:3
+Started GET "/" for ::1 at 2020-06-17 15:49:12 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 3594.4ms | Allocations: 47931)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 3615ms (Views: 3612.1ms | ActiveRecord: 0.0ms | Allocations: 55543)
+
+
+Started GET "/" for ::1 at 2020-06-17 15:52:10 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 3240.9ms | Allocations: 46899)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 3247ms (Views: 3245.8ms | ActiveRecord: 0.0ms | Allocations: 51899)
+
+
+Started GET "/" for ::1 at 2020-06-17 15:54:38 +0200
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 3177.6ms | Allocations: 44371)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 3184ms (Views: 3181.7ms | ActiveRecord: 0.0ms | Allocations: 49383)
+
+
+Started GET "/" for ::1 at 2020-06-17 16:01:44 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 5520.6ms | Allocations: 37170)
+Completed 500 Internal Server Error in 5527ms (ActiveRecord: 0.0ms | Allocations: 38575)
+
+
+  
+ActionView::Template::Error (undefined method `[]' for #<News:0x000055ef37cc5700>):
+    1: <p>
+    2:   <%= google_news %><br>
+    3:   <%= apple_news %><br>
+    4:   <%= lemonde_news %><br>
+    5:   <%= minutes_news %><br>
+    6: </p>
+  
+app/helpers/home_helper.rb:10:in `apple_news'
+app/views/home/index.html.erb:3
+Started GET "/" for ::1 at 2020-06-17 16:07:03 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 2184.4ms | Allocations: 31283)
+Completed 500 Internal Server Error in 2189ms (ActiveRecord: 0.0ms | Allocations: 32686)
+
+
+  
+ActionView::Template::Error (BadRequestException):
+    1: <p>
+    2:   <%= google_news %><br>
+    3:   <%= apple_news %><br>
+    4:   <%= lemonde_news %><br>
+    5:   <%= minutes_news %><br>
+    6: </p>
+  
+app/helpers/home_helper.rb:8:in `apple_news'
+app/views/home/index.html.erb:3
+Started GET "/" for ::1 at 2020-06-17 16:08:24 +0200
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1798.2ms | Allocations: 6971)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1824ms (Views: 1822.6ms | ActiveRecord: 0.0ms | Allocations: 13233)
+
+
+Started GET "/" for 127.0.0.1 at 2020-06-17 16:13:58 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1536.4ms | Allocations: 9854)
+Completed 500 Internal Server Error in 1546ms (ActiveRecord: 0.0ms | Allocations: 12881)
+
+
+  
+ActionView::Template::Error (no implicit conversion of News into String):
+    1: <p>
+    2:   <%= google_news %><br>
+    3:   <%= apple_news %><br>
+    4: </p>
+  
+app/helpers/home_helper.rb:10:in `apple_news'
+app/views/home/index.html.erb:3
+Started GET "/" for 127.0.0.1 at 2020-06-17 16:15:58 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 927.0ms | Allocations: 5212)
+Completed 500 Internal Server Error in 943ms (ActiveRecord: 0.0ms | Allocations: 6629)
+
+
+  
+ActionView::Template::Error (401 Unauthorized):
+    1: <p>
+    2:   <%= google_news %><br>
+    3:   <%= apple_news %><br>
+    4: </p>
+  
+app/helpers/home_helper.rb:15:in `apple_news'
+app/views/home/index.html.erb:3
+Started GET "/" for 127.0.0.1 at 2020-06-17 16:16:24 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1014.1ms | Allocations: 4358)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1050ms (Views: 1048.2ms | ActiveRecord: 0.0ms | Allocations: 12077)
+
+
+Started GET "/" for 127.0.0.1 at 2020-06-17 16:17:14 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1022.0ms | Allocations: 4434)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1040ms (Views: 1038.1ms | ActiveRecord: 0.0ms | Allocations: 9557)
+
+
