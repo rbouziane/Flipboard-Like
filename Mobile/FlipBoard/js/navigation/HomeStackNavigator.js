@@ -131,7 +131,7 @@ export default function HomeStackNavigator() {
       />
       <Navigator.Screen name="Abonnements" component={SubscriptionStackScreen}
         options={{
-            backgroundColor: '#red',
+          backgroundColor: '#red',
           tabBarIcon: props => (
             <MaterialCommunityIcons name="view-dashboard-outline" size={props.size} color={props.color} />
           ),

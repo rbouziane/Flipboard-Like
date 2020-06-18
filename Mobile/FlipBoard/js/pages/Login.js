@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, Dimensions, TextInput, Button } from 'react-native';
+import { View, Text, StyleSheet, Image, Dimensions, TextInput, Button, AsyncStorage } from 'react-native';
 import Animated, { Easing } from 'react-native-reanimated';
 import { TapGestureHandler, State } from 'react-native-gesture-handler';
-import Firebase from '../Login/FirebaseComande'
+import { SignInFirebase } from '../Login/FirebaseAPI'
+
+import { AuthContext } from '../components/Context'
 
 const { width, height } = Dimensions.get('window');
 
@@ -52,8 +54,43 @@ function runTiming(clock, value, dest) {
     state.position
   ]);
 }
+
+const SignInButton = (props) => {
+
+    const { signIn } = React.useContext(AuthContext);
+
+    const storeIsLogged = async (email) => {
+      try {
+        await AsyncStorage.setItem('userLogged', email);
+        signIn(email);
+      } catch (error) {
+          console.log(error);
+      }
+    };
+
+    const PressIN = async () => {
+        if (props.email != '' && props.password != '') {
+            const user = await SignInFirebase(props.email, props.password)
+            if (user != null)
+            {
+                storeIsLogged(user.user.email)
+            }
+        }
+    }
+
+    return (
+      <Button style={{fontSize: 20, fontWeight: 'bold'}}
+       title='SIGN IN'
+       onPress={() => PressIN()}
+       >
+      </Button>
+    )
+
+}
+
 class Login extends Component {
-  constructor() {
+
+   constructor() {
     super();
 
     this.state = {
@@ -118,10 +155,16 @@ class Login extends Component {
       extrapolate: Extrapolate.CLAMP
     });
   }
-  PressIN = () => {
-      const result = Firebase.Conect(this.state.email, this.state.password)
-      console.log(result);
-  }
+
+  storeIsLogged = async () => {
+    try {
+      await AsyncStorage.setItem('userLogged', "true");
+      Sign.signIn();
+    } catch (error) {
+      // Error saving data
+    }
+  };
+
   render() {
     return (
       <View
@@ -199,12 +242,8 @@ class Login extends Component {
               onChangeText={text => this.setState({ password: text })}
               />
               <Animated.View style={styles.button}>
-                  <Button style={{fontSize: 20, fontWeight: 'bold'}}
-                   title='SIGN IN'
-                   onPress={()=>this.PressIN()}
-                   >
-                  </Button>
-                  <Text style={{fontSize: 20, fontWeight: 'bold'}}>SIGN IN</Text>
+                <SignInButton email={this.state.email} password={this.state.password}/>
+                <Text style={{fontSize: 20, fontWeight: 'bold'}}>SIGN IN</Text>
               </Animated.View>
           </Animated.View>
         </View>

@@ -1,7 +1,8 @@
 import React from 'react'
-import { View, ImageBackground, Image, ScrollView, Text, StyleSheet} from 'react-native'
-import { Searchbar, Title } from 'react-native-paper';
-import { Entypo } from '@expo/vector-icons';
+import { View, ImageBackground, Text, StyleSheet} from 'react-native'
+import { Button } from 'native-base'
+import { Searchbar } from 'react-native-paper';
+import { FontAwesome5 } from '@expo/vector-icons';
 
 export default class Subscription extends React.Component {
     constructor() {
@@ -17,7 +18,9 @@ export default class Subscription extends React.Component {
           <View style={{flex: 1, flexDirection: "row"}}>
             <Text style={styles.articleText}>{subscription}</Text>
             <View style={styles.mainDotsView}>
-              <Entypo style={{margin: 10, flexDirection: 'row-reverse'}} name="dots-three-vertical" size={18} color="white"/>
+              <Button transparent onPress={()=>{this.props.navigation.navigate('Rechercher', {name: 'anything you want here'})}}>
+                <FontAwesome5 style={{margin: 10, flexDirection: 'row-reverse'}} name="arrow-alt-circle-down" size={22} color="white" />
+              </Button>
             </View>
           </View>
         </ImageBackground>

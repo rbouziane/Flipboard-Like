@@ -1,5 +1,6 @@
 import React from 'react'
 import { Splashscreen } from './js/pages/screens/SplashScreen'
+import { AsyncStorage } from 'react-native'
 import {
     NavigationContainer,
     DefaultTheme as NavigationDefaultTheme,
@@ -10,6 +11,8 @@ import AuthStackNavigator from './js/navigation/AuthStackNavigator'
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
 import * as SplashScreen from 'expo-splash-screen';
+
+import { AuthContext } from './js/components/Context'
 
 import { DefaultTheme, DarkTheme } from '@react-navigation/native';
 import {
@@ -23,7 +26,6 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 const Drawer = createDrawerNavigator();
 
 import DrawerContent from './js/navigation/DrawerContent'
-import Login from './js/pages/Login'
 
 const RootStack = createStackNavigator();
 
@@ -81,31 +83,52 @@ export default class App extends React.Component {
       });
     };
 
-    renderScreens() {
+    render() {
       if (!this.state.appIsReady) {
-          return <RootStack.Screen name={'Splash'} component={Splashscreen} />;
+         return <RootStack.Screen name={'Splash'} component={Splashscreen} />;
       }
-      if (!this.isLogged) {
-         return <RootStack.Screen name={'AuthStack'} component={AuthStackNavigator} />
-      }
-      return <RootStack.Screen name={'HomeStack'} component={HomeStackNavigator} />
+      return <Render/>
+    }
+}
+
+const Render = ()  => {
+
+  const [userEmail, setUserEmail] = React.useState(null);
+
+  const authContext = React.useMemo(() => ({
+    signIn: (email) => {
+      setUserEmail(email);
+    },
+    signOut: () => {
+      setUserEmail(null)
+    },
+    signUp: (email) =>  {
+      setUserEmail(email);
     }
 
-    render() {
-      return (
-        <PaperProvider theme={CustomDefaultTheme}>
-        <NavigationContainer theme={CustomDefaultTheme}>
-          <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
-            {this.renderScreens()}
-          </Drawer.Navigator>
-          {/*<RootStack.Navigator
-            screenOptions={{
-              headerShown: false,
-              animationEnabled: false,
-            }}>
-          </RootStack.Navigator>*/}
-        </NavigationContainer>
-        </PaperProvider>
-      );
-    }
+  }))
+
+  return (
+    <AuthContext.Provider value={authContext}>
+    <PaperProvider theme={CustomDefaultTheme}>
+    <NavigationContainer theme={CustomDefaultTheme}>
+      <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
+      {console.log(userEmail)}
+      {userEmail == null ? (
+        <RootStack.Screen name={'AuthStack'} component={AuthStackNavigator} />
+      )
+      :
+        <RootStack.Screen name={'HomeStack'} component={HomeStackNavigator} />
+      }
+      </Drawer.Navigator>
+      {/*<RootStack.Navigator
+        screenOptions={{
+          headerShown: false,
+          animationEnabled: false,
+        }}>
+      </RootStack.Navigator>*/}
+    </NavigationContainer>
+    </PaperProvider>
+    </AuthContext.Provider>
+  );
 }

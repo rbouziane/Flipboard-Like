@@ -2,7 +2,7 @@ import React from 'react'
 import { View, ImageBackground, Text, StyleSheet, ActivityIndicator } from 'react-native'
 import { Ionicons } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
-import { getNews } from "./API"
+import { getNewsTopHeadlines } from "./API"
 
 import NewsPaperView from './NewsPaperView'
 import {
@@ -41,7 +41,7 @@ export default class Home extends React.Component {
     async fetchNews() {
       let articles
       try {
-        articles = await getNews("5")
+        articles = await getNewsTopHeadlines("5")
         this.setState({articles: articles, isReady: true});
       } catch(e) {
         console.log("Error", e)
@@ -116,11 +116,11 @@ export default class Home extends React.Component {
           <View style={{flexDirection: 'row', flex: 1}}>
             {/*Left Articles */}
             <View style={styles.rightBorderView}>
-              <View style={{margin: 5, flex: 1}}>
+              <View style={{marginHorizontal: 5, flex: 1}}>
                 <View style={{marginBottom: 5, flex: 2}}>
                   {this.secondArticle(this.state.articles[1].urlToImage, this.state.articles[1].title, this.state.articles[1].source.name, this.state.articles[1].url)}
                 </View>
-                <View style={{flex: 2}}>
+                <View style={{marginBottom: 5, flex: 2}}>
                   {this.secondArticle(this.state.articles[2].urlToImage, this.state.articles[2].title, this.state.articles[2].source.name, this.state.articles[2].url)}
                 </View>
               </View>
@@ -129,11 +129,11 @@ export default class Home extends React.Component {
             {/*Right Article */}
             <View style={{flexDirection: 'row', flex: 1}}>
               <View style={styles.rightBorderView}>
-                <View style={{margin: 5, flex: 1}}>
+                <View style={{marginRight: 5, flex: 1}}>
                   <View style={{marginBottom: 5, flex: 2}}>
                     {this.secondArticle(this.state.articles[3].urlToImage, this.state.articles[3].title, this.state.articles[3].source.name, this.state.articles[3].url)}
                   </View>
-                  <View style={{flex: 2}}>
+                  <View style={{marginBottom: 5, flex: 2}}>
                     {this.secondArticle(this.state.articles[4].urlToImage, this.state.articles[4].title, this.state.articles[4].source.name, this.state.articles[4].url)}
                   </View>
                 </View>

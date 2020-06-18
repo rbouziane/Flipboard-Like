@@ -1,5 +1,5 @@
 import React from'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, AsyncStorage } from 'react-native';
 import {
     useTheme,
     Avatar,
@@ -20,7 +20,29 @@ import { Entypo } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
+import { AuthContext } from '../components/Context'
+
+import { SignOutFirebase } from '../Login/FirebaseAPI'
+
 export default function DrawerContent(props) {
+
+  const { signOut } = React.useContext(AuthContext);
+
+  const storeIsNotLogged = async () => {
+    try {
+        await AsyncStorage.setItem('userLogged', "");
+        console.log("here")
+        signOut();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const PressOut = async () => {
+      await SignOutFirebase().then( function () {
+          storeIsNotLogged()
+      })
+  }
 
   const [isDarkTheme, setIsDarkTheme] = React.useState(false);
 
@@ -114,6 +136,7 @@ export default function DrawerContent(props) {
             <Icon name="exit-to-app" size={size} color={color} />
           )}
           label="Déconnexion"
+          onPress={() => {PressOut()}}
         />
       </Drawer.Section>
     </View>

@@ -4,7 +4,6 @@ import { Asset } from 'expo-asset';
 import { AppLoading } from 'expo';
 import LoginApp from '../pages/Login'
 
-
 function cacheImages(images) {
   return images.map(image => {
     if (typeof image === 'string') {
