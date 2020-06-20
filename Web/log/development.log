@@ -5066,3 +5066,976 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 1040ms (Views: 1038.1ms | ActiveRecord: 0.0ms | Allocations: 9557)
 
 
+Started GET "/" for ::1 at 2020-06-20 15:08:33 +0200
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1135.9ms | Allocations: 4394)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1187ms (Views: 1181.5ms | ActiveRecord: 0.0ms | Allocations: 15337)
+
+
+Started GET "/" for ::1 at 2020-06-20 15:11:57 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 820.8ms | Allocations: 5172)
+Completed 500 Internal Server Error in 826ms (ActiveRecord: 0.0ms | Allocations: 6535)
+
+
+  
+ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+    1: <p>
+    2:   <%= google_news["articles"].each %><br>
+    3:   <%= apple_news %><br>
+    4: </p>
+  
+app/views/home/index.html.erb:2
+Started GET "/" for ::1 at 2020-06-20 15:12:59 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 639.4ms | Allocations: 4904)
+Completed 500 Internal Server Error in 642ms (ActiveRecord: 0.0ms | Allocations: 6269)
+
+
+  
+ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+    1: <p>
+    2:   <%google_news["articles"].each do |a|%>
+    3:   <%= a %>
+    4:   <%end%>
+    5:   <%= apple_news %><br>
+  
+app/views/home/index.html.erb:2
+Started GET "/" for ::1 at 2020-06-20 15:15:23 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1095.2ms | Allocations: 4821)
+Completed 500 Internal Server Error in 1099ms (ActiveRecord: 0.0ms | Allocations: 6186)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: <p>
+    2:   <%google_news.each do |a|%>
+    3:     <%= a %>
+    4:   <%end%>
+    5:   <%= apple_news %><br>
+  
+app/views/home/index.html.erb:2
+Started GET "/" for ::1 at 2020-06-20 15:16:13 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 367.0ms | Allocations: 2900)
+Completed 500 Internal Server Error in 371ms (ActiveRecord: 0.0ms | Allocations: 4262)
+
+
+  
+ActionView::Template::Error (undefined method `each' for #<String:0x000056447dde29f8>):
+    1: <p>
+    2:   <%apple_news.each do |a|%>
+    3:     <%= a %>
+    4:   <%end%>
+    5:   <%= apple_news %><br>
+  
+app/views/home/index.html.erb:2
+Started GET "/" for ::1 at 2020-06-20 15:16:55 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 154.9ms | Allocations: 904)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 165ms (Views: 164.1ms | ActiveRecord: 0.0ms | Allocations: 6453)
+
+
+Started GET "/" for ::1 at 2020-06-20 15:16:59 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 222.9ms | Allocations: 790)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 245ms (Views: 244.2ms | ActiveRecord: 0.0ms | Allocations: 4985)
+
+
+Started GET "/" for ::1 at 2020-06-20 15:17:26 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 238.5ms | Allocations: 2870)
+Completed 500 Internal Server Error in 242ms (ActiveRecord: 0.0ms | Allocations: 4212)
+
+
+  
+ActionView::Template::Error (undefined method `each' for #<String:0x00007fc8b0a3f608>):
+    1: <p>
+    2:   <%apple_news.each do |a|%>
+    3:     <%= a %>
+    4:   <%end%>
+    5: </p>
+  
+app/views/home/index.html.erb:2
+Started GET "/" for ::1 at 2020-06-20 15:19:10 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 259.8ms | Allocations: 2916)
+Completed 500 Internal Server Error in 266ms (ActiveRecord: 0.0ms | Allocations: 4264)
+
+
+  
+ActionView::Template::Error (undefined method `each_key' for #<String:0x00007fc8b06940d0>
+Did you mean?  each_byte):
+    1: <p>
+    2:   <%apple_news.each_key { |articles|  puts articles}%>
+    3: </p>
+  
+app/views/home/index.html.erb:2
+Started GET "/" for ::1 at 2020-06-20 15:19:19 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 253.4ms | Allocations: 2782)
+Completed 500 Internal Server Error in 260ms (ActiveRecord: 0.0ms | Allocations: 3293)
+
+
+  
+ActionView::Template::Error (undefined method `each_key' for #<String:0x00007fc8b02bc778>
+Did you mean?  each_byte):
+    1: <p>
+    2:   <%apple_news.each_key { |articles|  puts articles}%>
+    3: </p>
+  
+app/views/home/index.html.erb:2
+Started GET "/" for ::1 at 2020-06-20 15:22:44 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 297.3ms | Allocations: 2973)
+Completed 500 Internal Server Error in 300ms (ActiveRecord: 0.0ms | Allocations: 4376)
+
+
+  
+ActionView::Template::Error (undefined method `each_key' for #<Tempfile:/tmp/open-uri20200620-3586-eyia4o>
+Did you mean?  each_entry):
+    1: <p>
+    2:   <%apple_news.each_key { |articles|  puts articles}%>
+    3: </p>
+  
+app/views/home/index.html.erb:2
+Started GET "/" for ::1 at 2020-06-20 15:23:02 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 329.9ms | Allocations: 926)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 370ms (Views: 364.6ms | ActiveRecord: 0.0ms | Allocations: 6470)
+
+
+Started GET "/" for ::1 at 2020-06-20 15:23:16 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 340.4ms | Allocations: 2294)
+Completed 500 Internal Server Error in 348ms (ActiveRecord: 0.0ms | Allocations: 3711)
+
+
+  
+ActionView::Template::Error (undefined method `each_entry' for nil:NilClass):
+    1: <p>
+    2:   <%apple_news.each_entry { |articles|  puts articles}%>
+    3: </p>
+  
+app/views/home/index.html.erb:2
+Started GET "/" for ::1 at 2020-06-20 15:25:40 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 174.8ms | Allocations: 1777)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 201ms (Views: 198.5ms | ActiveRecord: 0.0ms | Allocations: 6896)
+
+
+Started GET "/" for ::1 at 2020-06-20 15:27:09 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 277.9ms | Allocations: 1830)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 297ms (Views: 295.5ms | ActiveRecord: 0.0ms | Allocations: 7342)
+
+
+Started GET "/" for ::1 at 2020-06-20 15:32:23 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 239.3ms | Allocations: 1709)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 267ms (Views: 265.1ms | ActiveRecord: 0.0ms | Allocations: 7984)
+
+
+Started GET "/" for ::1 at 2020-06-20 15:34:03 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1101)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms | Allocations: 2452)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <p>
+  <%news["articles"].each do |a|%>
+    <%= image_tag a["urlToImage"] width="260" height="190" %>
+  <%end%>
+</p>
+
+):
+1:    <p>
+2:      <%news["articles"].each do |a|%>
+3:        <%= image_tag a["urlToImage"] width="260" height="190" %>
+4:      <%end%>
+5:    </p>
+  
+app/views/home/index.html.erb:3: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/home/index.html.erb:3: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/home/index.html.erb:3: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/home/index.html.erb:3: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/home/index.html.erb:3: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/home/index.html.erb:3: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/home/index.html.erb:3: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/home/index.html.erb:3: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/home/index.html.erb:3: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/home/index.html.erb:3: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/home/index.html.erb:3: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/home/index.html.erb:3: syntax error, unexpected tIDENTIFIER, expecting ')'
+Started GET "/" for ::1 at 2020-06-20 15:34:19 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 249.0ms | Allocations: 2320)
+Completed 500 Internal Server Error in 252ms (ActiveRecord: 0.0ms | Allocations: 3676)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 3, expected 1..2)):
+    1: <p>
+    2:   <%news["articles"].each do |a|%>
+    3:     <%= image_tag a["urlToImage"], width="260", height="190" %>
+    4:   <%end%>
+    5: </p>
+  
+app/views/home/index.html.erb:3
+app/views/home/index.html.erb:2:in `each'
+app/views/home/index.html.erb:2
+Started GET "/" for ::1 at 2020-06-20 15:35:01 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 256.6ms | Allocations: 2120)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 291ms (Views: 289.7ms | ActiveRecord: 0.0ms | Allocations: 7638)
+
+
+Started GET "/" for ::1 at 2020-06-20 15:39:15 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 298.2ms | Allocations: 2229)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 336ms (Views: 331.5ms | ActiveRecord: 0.0ms | Allocations: 7740)
+
+
+Started GET "/" for ::1 at 2020-06-20 15:43:55 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 177.6ms | Allocations: 2293)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 206ms (Views: 203.4ms | ActiveRecord: 0.0ms | Allocations: 7800)
+
+
+Started GET "/" for ::1 at 2020-06-20 15:46:10 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 285.9ms | Allocations: 2288)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 325ms (Views: 321.6ms | ActiveRecord: 0.0ms | Allocations: 7799)
+
+
+Started GET "/" for ::1 at 2020-06-20 15:48:33 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 340.3ms | Allocations: 2378)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 362ms (Views: 361.1ms | ActiveRecord: 0.0ms | Allocations: 7891)
+
+
+Started GET "/" for ::1 at 2020-06-20 15:53:24 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 379.0ms | Allocations: 2331)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 469ms (Views: 466.9ms | ActiveRecord: 0.0ms | Allocations: 13757)
+
+
+Started GET "/" for ::1 at 2020-06-20 15:53:26 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 248.7ms | Allocations: 2214)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 269ms (Views: 266.7ms | ActiveRecord: 0.0ms | Allocations: 6402)
+
+
+Started GET "/" for ::1 at 2020-06-20 15:58:21 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 334.5ms | Allocations: 2394)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 393ms (Views: 392.4ms | ActiveRecord: 0.0ms | Allocations: 12740)
+
+
+Started GET "/" for ::1 at 2020-06-20 15:59:02 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 208.6ms | Allocations: 2139)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 234ms (Views: 231.9ms | ActiveRecord: 0.0ms | Allocations: 6835)
+
+
+Started GET "/" for ::1 at 2020-06-20 15:59:04 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 266.6ms | Allocations: 2188)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 285ms (Views: 284.3ms | ActiveRecord: 0.0ms | Allocations: 6381)
+
+
+Started GET "/" for ::1 at 2020-06-20 15:59:10 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 269.9ms | Allocations: 2218)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 292ms (Views: 290.3ms | ActiveRecord: 0.0ms | Allocations: 6421)
+
+
+Started GET "/" for ::1 at 2020-06-20 16:01:15 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 164.5ms | Allocations: 2142)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 219ms (Views: 218.4ms | ActiveRecord: 0.0ms | Allocations: 11590)
+
+
+Started GET "/" for ::1 at 2020-06-20 16:01:17 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 179.8ms | Allocations: 2143)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 202ms (Views: 201.5ms | ActiveRecord: 0.0ms | Allocations: 6342)
+
+
+Started GET "/" for ::1 at 2020-06-20 16:01:35 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 152.5ms | Allocations: 2360)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 164ms (Views: 163.3ms | ActiveRecord: 0.0ms | Allocations: 7866)
+
+
+Started GET "/" for ::1 at 2020-06-20 16:01:47 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 165.7ms | Allocations: 2385)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 196ms (Views: 191.9ms | ActiveRecord: 0.0ms | Allocations: 7890)
+
+
+Started GET "/" for ::1 at 2020-06-20 16:02:50 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 162.5ms | Allocations: 2361)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 263ms (Views: 260.2ms | ActiveRecord: 0.0ms | Allocations: 12759)
+
+
+Started GET "/" for ::1 at 2020-06-20 16:03:10 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 261.2ms | Allocations: 2189)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 319ms (Views: 317.5ms | ActiveRecord: 0.0ms | Allocations: 10782)
+
+
+Started GET "/" for ::1 at 2020-06-20 16:03:38 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 199.4ms | Allocations: 2145)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 258ms (Views: 255.2ms | ActiveRecord: 0.0ms | Allocations: 11187)
+
+
+Started GET "/" for ::1 at 2020-06-20 16:03:41 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 160.8ms | Allocations: 2168)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 176ms (Views: 172.8ms | ActiveRecord: 0.0ms | Allocations: 6353)
+
+
+Started GET "/" for ::1 at 2020-06-20 16:04:15 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 274.9ms | Allocations: 2317)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 298ms (Views: 297.1ms | ActiveRecord: 0.0ms | Allocations: 7834)
+
+
+Started GET "/" for ::1 at 2020-06-20 16:05:05 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 324.5ms | Allocations: 2172)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 348ms (Views: 346.7ms | ActiveRecord: 0.0ms | Allocations: 6848)
+
+
+Started GET "/" for ::1 at 2020-06-20 16:06:18 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 285.8ms | Allocations: 2168)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 342ms (Views: 339.7ms | ActiveRecord: 0.0ms | Allocations: 11608)
+
+
+Started GET "/" for ::1 at 2020-06-20 16:06:38 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 229.6ms | Allocations: 2187)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 288ms (Views: 286.8ms | ActiveRecord: 0.0ms | Allocations: 11743)
+
+
+Started GET "/" for ::1 at 2020-06-20 16:06:46 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 202.5ms | Allocations: 2166)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 270ms (Views: 268.7ms | ActiveRecord: 0.0ms | Allocations: 11172)
+
+
+Started GET "/" for ::1 at 2020-06-20 16:09:00 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 282.1ms | Allocations: 2147)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 351ms (Views: 349.1ms | ActiveRecord: 0.0ms | Allocations: 11628)
+
+
+Started GET "/" for ::1 at 2020-06-20 16:09:45 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 290.9ms | Allocations: 2132)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 357ms (Views: 353.5ms | ActiveRecord: 0.0ms | Allocations: 11155)
+
+
+Started GET "/" for ::1 at 2020-06-20 16:11:39 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 257.2ms | Allocations: 2187)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 332ms (Views: 330.4ms | ActiveRecord: 0.0ms | Allocations: 10775)
+
+
+Started GET "/" for ::1 at 2020-06-20 16:12:04 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 310.5ms | Allocations: 2216)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 371ms (Views: 369.5ms | ActiveRecord: 0.0ms | Allocations: 10806)
+
+
+Started GET "/" for ::1 at 2020-06-20 16:14:02 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 354.1ms | Allocations: 2168)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 410ms (Views: 408.6ms | ActiveRecord: 0.0ms | Allocations: 11653)
+
+
+Started GET "/" for ::1 at 2020-06-20 16:14:11 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 245.8ms | Allocations: 2211)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 306ms (Views: 305.4ms | ActiveRecord: 0.0ms | Allocations: 11275)
+
+
+Started GET "/" for ::1 at 2020-06-20 16:14:17 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 344.5ms | Allocations: 2192)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 366ms (Views: 364.6ms | ActiveRecord: 0.0ms | Allocations: 10787)
+
+
+Started GET "/" for ::1 at 2020-06-20 16:14:30 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 242.1ms | Allocations: 2169)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 252ms (Views: 251.5ms | ActiveRecord: 0.0ms | Allocations: 11185)
+
+
+Started GET "/" for ::1 at 2020-06-20 16:19:36 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 296.8ms | Allocations: 2378)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 362ms (Views: 351.7ms | ActiveRecord: 0.0ms | Allocations: 14094)
+
+
+Started GET "/" for ::1 at 2020-06-20 16:19:39 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 168.3ms | Allocations: 2146)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 192ms (Views: 189.6ms | ActiveRecord: 0.0ms | Allocations: 6332)
+
+
+Started GET "/" for ::1 at 2020-06-20 16:20:39 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 275.8ms | Allocations: 2192)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 333ms (Views: 332.6ms | ActiveRecord: 0.0ms | Allocations: 12198)
+
+
+Started GET "/" for ::1 at 2020-06-20 16:20:53 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 225.4ms | Allocations: 2145)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 289ms (Views: 286.2ms | ActiveRecord: 0.0ms | Allocations: 10752)
+
+
+Started GET "/" for ::1 at 2020-06-20 16:23:09 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 214.1ms | Allocations: 2192)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 272ms (Views: 269.6ms | ActiveRecord: 0.0ms | Allocations: 11298)
+
+
+Started GET "/" for ::1 at 2020-06-20 16:24:17 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 156.8ms | Allocations: 2169)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 192ms (Views: 191.9ms | ActiveRecord: 0.0ms | Allocations: 10773)
+
+
+Started GET "/" for ::1 at 2020-06-20 16:25:15 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 280.9ms | Allocations: 2132)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 325ms (Views: 323.7ms | ActiveRecord: 0.0ms | Allocations: 10743)
+
+
+Started GET "/" for ::1 at 2020-06-20 16:25:33 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 263.1ms | Allocations: 2165)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 310ms (Views: 307.2ms | ActiveRecord: 0.0ms | Allocations: 11265)
+
+
+Started GET "/" for ::1 at 2020-06-20 16:26:00 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 247.0ms | Allocations: 2213)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 283ms (Views: 281.8ms | ActiveRecord: 0.0ms | Allocations: 11276)
+
+
+Started GET "/" for ::1 at 2020-06-20 16:26:03 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 266.6ms | Allocations: 2192)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 293ms (Views: 291.8ms | ActiveRecord: 0.0ms | Allocations: 6373)
+
+
+Started GET "/" for ::1 at 2020-06-20 16:26:09 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 224.8ms | Allocations: 2142)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 281ms (Views: 280.4ms | ActiveRecord: 0.0ms | Allocations: 11632)
+
+
+Started GET "/" for ::1 at 2020-06-20 16:54:58 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 288.3ms | Allocations: 2157)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 352ms (Views: 351.7ms | ActiveRecord: 0.0ms | Allocations: 11323)
+
+
+Started GET "/" for ::1 at 2020-06-20 16:55:22 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 271.5ms | Allocations: 2213)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 324ms (Views: 321.8ms | ActiveRecord: 0.0ms | Allocations: 11285)
+
+
+Started GET "/" for ::1 at 2020-06-20 16:58:10 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 219.3ms | Allocations: 2459)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 269ms (Views: 264.8ms | ActiveRecord: 0.0ms | Allocations: 7968)
+
+
+Started GET "/" for ::1 at 2020-06-20 17:00:48 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 294.0ms | Allocations: 2431)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 359ms (Views: 357.1ms | ActiveRecord: 0.0ms | Allocations: 12811)
+
+
+Started GET "/" for ::1 at 2020-06-20 17:02:35 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 202.4ms | Allocations: 2489)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 256ms (Views: 247.3ms | ActiveRecord: 0.0ms | Allocations: 7992)
+
+
+Started GET "/" for ::1 at 2020-06-20 17:03:06 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 350.5ms | Allocations: 2249)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 439ms (Views: 437.1ms | ActiveRecord: 0.0ms | Allocations: 11694)
+
+
+Started GET "/" for ::1 at 2020-06-20 17:05:06 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 175.6ms | Allocations: 2223)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 215ms (Views: 211.7ms | ActiveRecord: 0.0ms | Allocations: 11251)
+
+
+Started GET "/" for ::1 at 2020-06-20 17:07:57 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 234.0ms | Allocations: 2457)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 309ms (Views: 306.5ms | ActiveRecord: 0.0ms | Allocations: 12941)
+
+
+Started GET "/" for ::1 at 2020-06-20 17:10:42 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 456.3ms | Allocations: 2876)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 487ms (Views: 482.8ms | ActiveRecord: 0.0ms | Allocations: 8371)
+
+
+Started GET "/" for ::1 at 2020-06-20 17:11:14 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 173.4ms | Allocations: 2852)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 204ms (Views: 199.9ms | ActiveRecord: 0.0ms | Allocations: 8355)
+
+
+Started GET "/" for ::1 at 2020-06-20 17:11:15 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 239.5ms | Allocations: 2615)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 261ms (Views: 259.4ms | ActiveRecord: 0.0ms | Allocations: 6795)
+
+
+Started GET "/" for ::1 at 2020-06-20 17:11:42 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 217.2ms | Allocations: 2818)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 245ms (Views: 243.2ms | ActiveRecord: 0.0ms | Allocations: 8325)
+
+
+Started GET "/" for ::1 at 2020-06-20 17:12:06 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 259.0ms | Allocations: 2852)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 292ms (Views: 287.5ms | ActiveRecord: 0.0ms | Allocations: 8357)
+
+
+Started GET "/" for ::1 at 2020-06-20 17:14:12 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 293.9ms | Allocations: 2867)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 322ms (Views: 317.6ms | ActiveRecord: 0.0ms | Allocations: 8372)
+
+
+Started GET "/" for ::1 at 2020-06-20 17:14:42 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 171.2ms | Allocations: 2571)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 240ms (Views: 237.4ms | ActiveRecord: 0.0ms | Allocations: 12108)
+
+
+Started GET "/" for ::1 at 2020-06-20 17:15:17 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 186.2ms | Allocations: 2639)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 208ms (Views: 207.0ms | ActiveRecord: 0.0ms | Allocations: 11689)
+
+
+Started GET "/" for ::1 at 2020-06-20 17:16:18 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 180.9ms | Allocations: 2834)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 213ms (Views: 208.7ms | ActiveRecord: 0.0ms | Allocations: 8350)
+
+
+Started GET "/" for ::1 at 2020-06-20 17:16:38 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 341.5ms | Allocations: 2877)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 370ms (Views: 368.0ms | ActiveRecord: 0.0ms | Allocations: 8376)
+
+
+Started GET "/" for ::1 at 2020-06-20 17:18:57 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 427.0ms | Allocations: 2879)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 449ms (Views: 446.9ms | ActiveRecord: 0.0ms | Allocations: 8376)
+
+
+Started GET "/" for ::1 at 2020-06-20 17:19:24 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 453.9ms | Allocations: 2843)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 491ms (Views: 486.1ms | ActiveRecord: 0.0ms | Allocations: 8338)
+
+
+Started GET "/" for ::1 at 2020-06-20 17:19:39 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 169.1ms | Allocations: 2596)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 225ms (Views: 224.3ms | ActiveRecord: 0.0ms | Allocations: 13427)
+
+
+Started GET "/" for ::1 at 2020-06-20 17:24:05 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 630.5ms | Allocations: 165195)
+Completed 500 Internal Server Error in 647ms (ActiveRecord: 0.0ms | Allocations: 167320)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `news_normal' for #<#<Class:0x000056447b0e6530>:0x000056447b2bb518>
+Did you mean?  new_normal):
+    22: <div class="board">
+    23:   <p>
+    24:     <% i = 0 %>
+    25:     <%news_normal["articles"].each do |a|%>
+    26:       <% if i == 5 %>
+    27:       <div class="break"></div>
+    28:       <% i = 0 %>
+  
+app/views/home/index.html.erb:25
+Started GET "/" for ::1 at 2020-06-20 17:24:26 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 448.2ms | Allocations: 4226)
+Completed 500 Internal Server Error in 451ms (ActiveRecord: 0.0ms | Allocations: 5639)
+
+
+  
+ActionView::Template::Error (400 Bad Request):
+    22: <div class="board">
+    23:   <p>
+    24:     <% i = 0 %>
+    25:     <%news_normal["articles"].each do |a|%>
+    26:       <% if i == 5 %>
+    27:       <div class="break"></div>
+    28:       <% i = 0 %>
+  
+app/helpers/home_helper.rb:18:in `news_normal'
+app/views/home/index.html.erb:25
+Started GET "/" for ::1 at 2020-06-20 17:25:19 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 592.1ms | Allocations: 5233)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 616ms (Views: 614.4ms | ActiveRecord: 0.0ms | Allocations: 10819)
+
+
+Started GET "/" for ::1 at 2020-06-20 17:28:06 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1036.3ms | Allocations: 8625)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1056ms (Views: 1054.1ms | ActiveRecord: 0.0ms | Allocations: 14880)
+
+
+Started GET "/" for ::1 at 2020-06-20 17:29:14 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1040.8ms | Allocations: 8396)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1071ms (Views: 1065.5ms | ActiveRecord: 0.0ms | Allocations: 13899)
+
+
+Started GET "/" for ::1 at 2020-06-20 17:30:56 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 969.9ms | Allocations: 10140)
+Completed 500 Internal Server Error in 973ms (ActiveRecord: 0.0ms | Allocations: 12223)
+
+
+  
+ActionView::Template::Error (401 Unauthorized):
+    62: <div class="board">
+    63:   <p>
+    64:     <% i = 0 %>
+    65:     <%news_bbc["articles"].each do |a|%>
+    66:       <% if i == 5 %>
+    67:       <div class="break"></div>
+    68:       <% i = 0 %>
+  
+app/helpers/home_helper.rb:37:in `news_bbc'
+app/views/home/index.html.erb:65
+Started GET "/" for ::1 at 2020-06-20 17:31:36 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 969.5ms | Allocations: 9457)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 999ms (Views: 995.6ms | ActiveRecord: 0.0ms | Allocations: 15035)
+
+
+Started GET "/" for ::1 at 2020-06-20 17:35:31 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1007.9ms | Allocations: 10237)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1037ms (Views: 1034.6ms | ActiveRecord: 0.0ms | Allocations: 15748)
+
+
+Started GET "/" for ::1 at 2020-06-20 17:35:50 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 967.6ms | Allocations: 10282)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1004ms (Views: 999.8ms | ActiveRecord: 0.0ms | Allocations: 15783)
+
+
+Started GET "/" for ::1 at 2020-06-20 17:37:06 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1207.8ms | Allocations: 10158)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1243ms (Views: 1239.5ms | ActiveRecord: 0.0ms | Allocations: 15653)
+
+
+Started GET "/" for ::1 at 2020-06-20 17:38:33 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 674.3ms | Allocations: 10337)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 716ms (Views: 705.7ms | ActiveRecord: 0.0ms | Allocations: 15846)
+
+
+Started GET "/" for ::1 at 2020-06-20 17:38:49 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1082.5ms | Allocations: 10428)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1110ms (Views: 1108.2ms | ActiveRecord: 0.0ms | Allocations: 15941)
+
+
+Started GET "/" for ::1 at 2020-06-20 17:40:00 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1415.9ms | Allocations: 10447)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1448ms (Views: 1443.5ms | ActiveRecord: 0.0ms | Allocations: 15964)
+
+
+Started GET "/" for ::1 at 2020-06-20 17:42:18 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1006.5ms | Allocations: 10287)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1035ms (Views: 1030.0ms | ActiveRecord: 0.0ms | Allocations: 15796)
+
+
+Started GET "/" for ::1 at 2020-06-20 17:42:38 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1105.8ms | Allocations: 10508)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1163ms (Views: 1162.0ms | ActiveRecord: 0.0ms | Allocations: 16011)
+
+
+Started GET "/" for ::1 at 2020-06-20 17:43:02 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 777.0ms | Allocations: 10523)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 785ms (Views: 783.7ms | ActiveRecord: 0.0ms | Allocations: 16028)
+
+
+Started GET "/" for ::1 at 2020-06-20 17:43:29 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 792.9ms | Allocations: 10501)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 831ms (Views: 828.6ms | ActiveRecord: 0.0ms | Allocations: 16014)
+
+
+Started GET "/" for ::1 at 2020-06-20 17:44:14 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 956.8ms | Allocations: 10439)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 988ms (Views: 984.0ms | ActiveRecord: 0.0ms | Allocations: 15946)
+
+
+Started GET "/" for ::1 at 2020-06-20 17:44:17 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1173.1ms | Allocations: 9698)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1183ms (Views: 1182.1ms | ActiveRecord: 0.0ms | Allocations: 13890)
+
+
+Started GET "/" for ::1 at 2020-06-20 17:44:51 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1114.4ms | Allocations: 10422)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1139ms (Views: 1137.3ms | ActiveRecord: 0.0ms | Allocations: 15933)
+
+
+Started GET "/" for 127.0.0.1 at 2020-06-20 17:46:17 +0200
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 734.0ms | Allocations: 12138)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 805ms (Views: 794.5ms | ActiveRecord: 0.0ms | Allocations: 27801)
+
+

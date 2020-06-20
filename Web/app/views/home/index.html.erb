@@ -1,4 +1,80 @@
-<p>
-  <%= google_news %><br>
-  <%= apple_news %><br>
-</p>
+<center><h1> Featured </h1></center>
+<div class="board">
+    <p>
+      <% i = 0 %>
+      <%news["articles"].each do |a|%>
+        <% if i == 5 %>
+        <div class="break"></div>
+          <% i = 0 %>
+        <% end %>
+        <div class="column">
+          <%= link_to image_tag(a["urlToImage"], :size => "300x220", :crop => :fill), a["url"] %>
+          <%= link_to a["title"], a["url"], class: "title-article" %>
+          <br>
+          <div class="style_name"><%= a["source"]["name"] %></div>
+        </div>
+        <% i += 1 %>
+        <% end %>
+    </p>
+</div>
+
+<center><h1> Apples news </h1></center>
+<div class="board">
+  <p>
+    <% i = 0 %>
+    <%news_apple["articles"].each do |a|%>
+      <% if i == 5 %>
+      <div class="break"></div>
+      <% i = 0 %>
+    <% end %>
+    <div class="column">
+      <%= link_to image_tag(a["urlToImage"], :size => "300x220", :crop => :fill), a["url"] %>
+      <%= link_to a["title"], a["url"], class: "title-article" %>
+      <br>
+      <div class="style_name"><%= a["source"]["name"] %></div>
+    </div>
+    <% i += 1 %>
+  <% end %>
+  </p>
+</div>
+
+<center><h1> Google news </h1></center>
+<div class="board">
+  <p>
+    <% i = 0 %>
+    <%news_google["articles"].each do |a|%>
+      <% if i == 5 %>
+      <div class="break"></div>
+      <% i = 0 %>
+    <% end %>
+    <div class="column">
+      <%= link_to image_tag(a["urlToImage"], :size => "300x220", :crop => :fill), a["url"] %>
+      <% a["title"] = a["title"].rpartition('-').first %>
+      <%= link_to a["title"], a["url"], class: "title-article" %>
+      <br>
+      <div class="style_name"><%= a["source"]["name"] %></div>
+    </div>
+    <% i += 1 %>
+  <% end %>
+  </p>
+</div>
+
+<center><h1> BBC news </h1></center>
+<div class="board">
+  <p>
+    <% i = 0 %>
+    <%news_bbc["articles"].each do |a|%>
+      <% if i == 5 %>
+      <div class="break"></div>
+      <% i = 0 %>
+    <% end %>
+    <div class="column">
+      <%= link_to image_tag(a["urlToImage"], :size => "300x220", :crop => :fill), a["url"] %>
+      <%= link_to a["title"], a["url"], class: "title-article" %>
+      <br>
+      <div class="style_name"><%= a["source"]["name"] %></div>
+    </div>
+    <% i += 1 %>
+  <% end %>
+  </p>
+</div>
