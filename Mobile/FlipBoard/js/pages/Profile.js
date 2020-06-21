@@ -1,19 +1,90 @@
 import React from "react";
 import { StyleSheet, Text, View, SafeAreaView, Image, ScrollView } from "react-native";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
+import { Button, Paragraph, Menu, Divider, Provider, Searchbar } from 'react-native-paper';
+import Icon from 'react-native-vector-icons/FontAwesome';
+
+import Firebase from '../Login/FirebaseConfig'
+import { SendNewName } from '../Login/FirebaseAPI'
+
+import { EvilIcons } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons';
 
 export default class Profile extends React.Component {
     constructor() {
         super();
+        this.state = {
+          visible: false,
+          show: false,
+          getname: '',
+        };
     }
 
     componentDidMount() {
+      Firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        Firebase.database().ref(`users/${user.uid}`).once('value', (data) => {
+               const update = data.val();
+                this.setState({ getname: update.name });
+          })
+        }
+      });
     }
+    _openMenu = () => this.setState({ visible: true });
+    _closeMenu = () => this.setState({ visible: false });
+    newname = () => this.setState({ show: true });
+    closenewname = () => this.setState({ show: false});
+
+    Setname = async () => {
+      console.log('ici');
+      Firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        Firebase.database().ref(`users/${user.uid}`).once('value', (data) => {
+              const update = data.val();
+               this.setState({getname: update.name});
+          })
+        }
+      });
+    }
+    PressIN = async () => {
+      this.setState({ show: false })
+      console.log(this.state.name)
+        if (this.name != '') {
+            await SendNewName(this.state.name)
+            this.Setname()
+        }
+      }
 
     render() {
       return (
         <View style={styles.container}>
-            <ScrollView showsVerticalScrollIndicator={false}>
+          <ScrollView showsVerticalScrollIndicator={false}>
+
+
+          <View>
+            {this.state.show ? (
+            <Searchbar placeholder="Nom" placeholderTextColor="black" value={this.state.name} onChangeText={text => this.setState({ name: text })}/>
+              ) : null}
+            {this.state.show ? (
+                <Button transparent onPress={() => this.PressIN()}>
+                  <Feather name="save" size={24} color="black" />
+                </Button>
+                ) : null}
+            </View>
+
+              <View style={styles.menu}>
+                <Menu visible={this.state.visible} onDismiss={this._closeMenu} anchor={
+                  <Button transparent onPress={this._openMenu}>
+                    <EvilIcons name="gear" size={35} color="black" />
+                  </Button>
+                  }>
+                  <Menu.Item onPress={() => {}} title="Changer photo" />
+                  <Divider/>
+                  <Menu.Item onPress={this.newname} title="Changer de nom" />
+                </Menu>
+              </View>
+
+
                 <View style={styles.titleBar}>
                     {/*<Ionicons name="ios-arrow-back" size={24} color="#52575D"></Ionicons>
                     <Ionicons name="md-more" size={24} color="#52575D"></Ionicons>*/}
@@ -26,7 +97,7 @@ export default class Profile extends React.Component {
                 </View>
 
                 <View style={styles.infoContainer}>
-                    <Text style={[styles.text, { fontWeight: "200", fontSize: 36 }]}>Julie</Text>
+                    <Text style={[styles.text, { fontWeight: "200", fontSize: 36 }]}>{this.state.getname}</Text>
                 </View>
 
                 <View style={styles.statsContainer}>
@@ -39,24 +110,6 @@ export default class Profile extends React.Component {
                         <Text style={[styles.text, styles.subText]}>Follow</Text>
                     </View>
                 </View>
-
-                {/*<View style={{ marginTop: 32 }}>
-                    <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-                        <View style={styles.mediaImageContainer}>
-                            <Image source={require("../../assets/media1.jpg")} style={styles.image} resizeMode="cover"></Image>
-                        </View>
-                        <View style={styles.mediaImageContainer}>
-                            <Image source={require("../../assets/media2.jpg")} style={styles.image} resizeMode="cover"></Image>
-                        </View>
-                        <View style={styles.mediaImageContainer}>
-                            <Image source={require("../../assets/media3.jpg")} style={styles.image} resizeMode="cover"></Image>
-                        </View>
-                    </ScrollView>
-                    <View style={styles.mediaCount}>
-                        <Text style={[styles.text, { fontSize: 24, color: "#DFD8C8", fontWeight: "300" }]}>70</Text>
-                        <Text style={[styles.text, { fontSize: 12, color: "#DFD8C8", textTransform: "uppercase" }]}>Media</Text>
-                    </View>
-                </View>*/}
                 <Text style={[styles.subText, styles.recent]}>Activité récente</Text>
                 <View style={{ alignItems: "center" }}>
                     <View style={styles.recentItem}>
@@ -202,5 +255,9 @@ const styles = StyleSheet.create ({
         borderRadius: 6,
         marginTop: 3,
         marginRight: 20
+    },
+    menu: {
+      paddingTop: 10,
+      flexDirection: 'row-reverse',
     }
 })
